@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AI Tools Guide | NextGenIT AI Guide</title>
+<link rel="stylesheet" href="shared.css"/>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'si,ta,en',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+.hero{background:linear-gradient(135deg,#fdf4ff,#f3e8ff);padding-bottom:60px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#1a0d2b,#0d0d1f);}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:24px;}
+.tool-badge-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.tb{font-size:.62rem;font-weight:800;padding:3px 10px;border-radius:20px;border:2px solid;}
+.tb-free{border-color:var(--green);color:var(--green);}
+.tb-paid{border-color:var(--gold);color:var(--gold);}
+.tb-sinhala{border-color:#7c3aed;color:#7c3aed;}
+.tb-best{border-color:var(--accent);color:var(--accent);}
+.use-list{display:flex;flex-direction:column;gap:6px;margin-top:12px;}
+.use-item{font-size:.8rem;display:flex;align-items:flex-start;gap:8px;}
+.use-item::before{content:"✅";flex-shrink:0;}
+.ai-spotlight{background:var(--card);border:3px solid var(--accent);border-radius:var(--radius);padding:24px;margin:32px 0;}
+.sinhala-note{background:rgba(124,58,237,.08);border:2px solid rgba(124,58,237,.3);border-radius:12px;padding:14px 18px;margin-top:12px;font-size:.82rem;}
+[data-theme="dark"] .sinhala-note{background:rgba(124,58,237,.12);}
+.choose-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:20px;}
+.choose-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;box-shadow:var(--shadow);}
+.choose-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.choose-task{font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:4px;}
+.choose-ai{font-size:1rem;font-weight:900;color:var(--accent);}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html" class="active">🛠️ AI Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap"><div id="google_translate_element"></div></div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero page-content">
+  <div class="container" style="text-align:center;">
+    <span class="hero-emoji">🛠️</span>
+    <h1>AI <span>Tools Guide</span></h1>
+    <p>Not sure which AI to use? This page tells you exactly what each AI is best at — in simple words anyone can understand!</p>
+    <div class="hero-badges">
+      <span class="badge badge-blue">🔍 Side-by-side Comparison</span>
+      <span class="badge badge-green">🌐 Sinhala Support Info</span>
+      <span class="badge badge-gold">💡 Know Which to Use When</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUICK PICKER ===== -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">⚡ Quick Picker</span>
+  <h2 class="sec-h">What do you want to do? <span>Use This AI!</span></h2>
+  <p class="sec-sub">The fastest way to pick the right tool. Find your task and use that AI!</p>
+  <div class="choose-grid">
+    <div class="choose-card fade-in"><div class="choose-task">📝 Write in Sinhala</div><div class="choose-ai">🗣️ Dialog AI or ✨ Gemini</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">Gemini responds very well in Sinhala!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">📄 Analyze a long document</div><div class="choose-ai">🧠 Claude AI</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">Reads up to 200,000 words at once!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">🔍 Find current news/facts</div><div class="choose-ai">⚡ Grok or 🔍 Perplexity</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">Both have real-time internet access!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">📊 Work with Excel/Sheets</div><div class="choose-ai">🔷 Copilot or ✨ Gemini</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">Integrated into Office &amp; Google!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">💬 Everyday writing tasks</div><div class="choose-ai">🤖 ChatGPT</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">The all-rounder champion!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">📱 Social media content</div><div class="choose-ai">⚡ Grok</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">More human, casual style replies!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">🔬 Research with sources</div><div class="choose-ai">🔍 Perplexity</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">Every answer has real website links!</div></div>
+    <div class="choose-card fade-in"><div class="choose-task">📧 Work in Microsoft Office</div><div class="choose-ai">🔷 Microsoft Copilot</div><div style="font-size:.74rem;color:var(--muted);margin-top:4px;">Built right inside Word, Excel &amp; Teams!</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== TOOLS DETAIL ===== -->
+<section class="section">
+<div class="container">
+  <span class="sec-tag">📖 Full Tool Guide</span>
+  <h2 class="sec-h">All <span>7 AI Tools</span> Explained</h2>
+  <p class="sec-sub">Everything you need to know about each AI tool — simple, honest, and straight to the point!</p>
+
+  <div class="tools-grid">
+
+    <!-- DIALOG AI -->
+    <div class="tool-card fade-in" style="border-color:#7c3aed;">
+      <div class="tool-icon">🗣️</div>
+      <div class="tool-name"><a href="https://dialog.lk/" target="_blank">Dialog AI</a></div>
+      <div class="tool-url">dialog.lk/ai</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-sinhala">🌐 Best Sinhala AI</span>
+        <span class="tb tb-free">Free Available</span>
+      </div>
+      <p class="tool-desc">Sri Lanka's FIRST local AI! Built specifically to understand and write in Sinhala. Perfect for Sri Lankan professionals who need to write formal documents, emails, and reports in Sinhala.</p>
+      <div class="sinhala-note">🇱🇰 <strong>Best Sinhala AI in Sri Lanka!</strong> Made specifically for Sinhala writing — formal letters, business emails, office documents. Dialog users may have special access!</div>
+      <div class="use-list">
+        <div class="use-item">Sinhala formal letters &amp; emails</div>
+        <div class="use-item">Business documents in Sinhala</div>
+        <div class="use-item">Sinhala to English translation</div>
+        <div class="use-item">Official correspondence in Sinhala</div>
+      </div>
+    </div>
+
+    <!-- CHATGPT -->
+    <div class="tool-card fade-in">
+      <div class="tool-icon">🤖</div>
+      <div class="tool-name"><a href="https://chatgpt.com/" target="_blank">ChatGPT</a></div>
+      <div class="tool-url">chatgpt.com</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-best">🏆 Most Popular</span>
+        <span class="tb tb-free">Free Available</span>
+        <span class="tb tb-sinhala">Sinhala OK</span>
+      </div>
+      <p class="tool-desc">The world's most popular AI! An all-rounder that's amazing at writing, coding, analysis, creative work, and explaining anything. Understands Sinhala and can reply in Sinhala. Has thousands of specialized "GPT" add-ons!</p>
+      <div class="use-list">
+        <div class="use-item">Writing emails, reports, proposals</div>
+        <div class="use-item">Coding and debugging</div>
+        <div class="use-item">Creative writing and storytelling</div>
+        <div class="use-item">Explaining complex topics simply</div>
+        <div class="use-item">HR documents and policies</div>
+      </div>
+    </div>
+
+    <!-- GEMINI -->
+    <div class="tool-card fade-in" style="border-color:#3b82f6;">
+      <div class="tool-icon">✨</div>
+      <div class="tool-name"><a href="https://gemini.google.com/" target="_blank">Google Gemini</a></div>
+      <div class="tool-url">gemini.google.com</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-sinhala">🌟 Great Sinhala</span>
+        <span class="tb tb-free">Free Available</span>
+        <span class="tb tb-best">Google Integration</span>
+      </div>
+      <p class="tool-desc">Google's AI that works INSIDE Gmail, Docs, Sheets, and Slides. Gemini responds VERY WELL in Sinhala — one of the best for Sinhala content! Can also read images and analyze charts.</p>
+      <div class="sinhala-note">🌟 <strong>Gemini is excellent in Sinhala!</strong> It understands Sinhala well and gives high-quality Sinhala responses — formal writing, explanations, stories, and more. Great choice for Sinhala content!</div>
+      <div class="use-list">
+        <div class="use-item">Sinhala writing &amp; explanations</div>
+        <div class="use-item">Gmail, Google Docs &amp; Sheets tasks</div>
+        <div class="use-item">Image analysis and description</div>
+        <div class="use-item">YouTube video scripts</div>
+        <div class="use-item">Google Slides presentations</div>
+      </div>
+    </div>
+
+    <!-- GROK -->
+    <div class="tool-card fade-in" style="border-color:#374151;">
+      <div class="tool-icon">⚡</div>
+      <div class="tool-name"><a href="https://grok.com/" target="_blank">Grok (xAI)</a></div>
+      <div class="tool-url">grok.com</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-best">🎯 Human-like Style</span>
+        <span class="tb tb-free">Free Available</span>
+        <span class="tb" style="border-color:#374151;color:#374151;">Real-time News</span>
+      </div>
+      <p class="tool-desc">Elon Musk's AI from xAI. Grok replies in a MORE HUMAN, casual, and personable style than other AIs — it doesn't sound robotic! Has real-time internet access and can create short videos from photos. Great for social media content and news.</p>
+      <div class="use-list">
+        <div class="use-item">Social media content (feels real!)</div>
+        <div class="use-item">Current news &amp; trending topics</div>
+        <div class="use-item">Human-sounding copywriting</div>
+        <div class="use-item">Casual explanations &amp; debates</div>
+        <div class="use-item">LinkedIn &amp; Twitter/X posts</div>
+      </div>
+    </div>
+
+    <!-- CLAUDE AI -->
+    <div class="tool-card fade-in" style="border-color:#d97706;">
+      <div class="tool-icon">🧠</div>
+      <div class="tool-name"><a href="https://claude.ai/" target="_blank">Claude AI</a></div>
+      <div class="tool-url">claude.ai</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-best">📄 Long Documents</span>
+        <span class="tb tb-free">Free Available</span>
+        <span class="tb" style="border-color:#d97706;color:#d97706;">Deep Analysis</span>
+      </div>
+      <p class="tool-desc">Made by Anthropic. Claude is exceptional at reading very LONG documents — up to 200,000 words in one go! Perfect for analyzing reports, contracts, research papers. Also great for thoughtful, nuanced writing and careful analysis.</p>
+      <div class="use-list">
+        <div class="use-item">Analyzing 100+ page documents</div>
+        <div class="use-item">Contract and legal document review</div>
+        <div class="use-item">Research paper summaries</div>
+        <div class="use-item">Deep business strategy analysis</div>
+        <div class="use-item">Careful, nuanced writing &amp; editing</div>
+      </div>
+    </div>
+
+    <!-- PERPLEXITY -->
+    <div class="tool-card fade-in">
+      <div class="tool-icon">🔍</div>
+      <div class="tool-name"><a href="https://www.perplexity.ai/" target="_blank">Perplexity AI</a></div>
+      <div class="tool-url">perplexity.ai</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-best">🔗 Cites Sources</span>
+        <span class="tb tb-free">Free Available</span>
+      </div>
+      <p class="tool-desc">The BEST AI for research! Every answer comes with links to the real websites it got the information from — so you can verify everything! Great for finding current news, fact-checking, and research projects.</p>
+      <div class="use-list">
+        <div class="use-item">Market research with real sources</div>
+        <div class="use-item">Fact-checking claims</div>
+        <div class="use-item">Competitor analysis</div>
+        <div class="use-item">Current news summaries</div>
+        <div class="use-item">Sri Lanka regulation research</div>
+      </div>
+    </div>
+
+    <!-- COPILOT -->
+    <div class="tool-card fade-in">
+      <div class="tool-icon">🔷</div>
+      <div class="tool-name"><a href="https://copilot.microsoft.com/" target="_blank">Microsoft Copilot</a></div>
+      <div class="tool-url">copilot.microsoft.com</div>
+      <div class="tool-badge-row">
+        <span class="tb tb-best">💼 Microsoft Office</span>
+        <span class="tb tb-free">Free Available</span>
+      </div>
+      <p class="tool-desc">AI built directly INSIDE Microsoft Office! Use it in Word, Excel, PowerPoint, Outlook, and Teams without switching tabs. Perfect for workplaces that use Microsoft 365 every day.</p>
+      <div class="use-list">
+        <div class="use-item">Create PowerPoint slides instantly</div>
+        <div class="use-item">Excel formulas &amp; data analysis</div>
+        <div class="use-item">Draft emails in Outlook</div>
+        <div class="use-item">Write Word documents &amp; reports</div>
+        <div class="use-item">Summarize Teams meetings</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">📊 Side-by-Side Comparison</span>
+  <h2 class="sec-h">Feature <span>Comparison Table</span></h2>
+  <p class="sec-sub">Compare all 7 AI tools at a glance!</p>
+  <div style="overflow-x:auto;">
+  <table class="cmp-table fade-in">
+    <thead>
+      <tr>
+        <th>AI Tool</th>
+        <th>Free Version</th>
+        <th>Sinhala Support</th>
+        <th>Real-time News</th>
+        <th>Long Documents</th>
+        <th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🗣️ Dialog AI</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="check">⭐⭐⭐ Best</td>
+        <td class="cross">❌</td>
+        <td class="partial">🟡 Some</td>
+        <td>Sinhala writing</td>
+      </tr>
+      <tr>
+        <td><strong>🤖 ChatGPT</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="partial">🟡 Good</td>
+        <td class="partial">🟡 Paid only</td>
+        <td class="check">✅ Yes</td>
+        <td>All-round tasks</td>
+      </tr>
+      <tr>
+        <td><strong>✨ Gemini</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="check">⭐⭐ Very good</td>
+        <td class="check">✅ Yes</td>
+        <td class="check">✅ Yes</td>
+        <td>Google Workspace</td>
+      </tr>
+      <tr>
+        <td><strong>⚡ Grok</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="partial">🟡 Basic</td>
+        <td class="check">✅ Real-time</td>
+        <td class="partial">🟡 Some</td>
+        <td>Social media &amp; news</td>
+      </tr>
+      <tr>
+        <td><strong>🧠 Claude AI</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="partial">🟡 Good</td>
+        <td class="cross">❌</td>
+        <td class="check">⭐⭐ Best</td>
+        <td>Long document analysis</td>
+      </tr>
+      <tr>
+        <td><strong>🔍 Perplexity</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="partial">🟡 Basic</td>
+        <td class="check">✅ Real-time</td>
+        <td class="partial">🟡 Some</td>
+        <td>Research with sources</td>
+      </tr>
+      <tr>
+        <td><strong>🔷 Copilot</strong></td>
+        <td class="check">✅ Yes</td>
+        <td class="partial">🟡 Basic</td>
+        <td class="check">✅ Yes</td>
+        <td class="partial">🟡 Some</td>
+        <td>Microsoft Office</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container" style="text-align:center;">
+  <span class="sec-tag">💬 Try the Prompts</span>
+  <h2 class="sec-h">Now Try Real <span>Prompts for Each AI!</span></h2>
+  <p class="sec-sub" style="margin:0 auto 24px;">Head to the prompt library to find ready-to-use prompts for every AI tool above!</p>
+  <a href="prompts.html" class="btn btn-primary">💬 Go to Prompt Library →</a>
+</div>
+</section>
+
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><a href="guide.html">📖 Framework</a><a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a><a href="practice.html">✏️ Practice</a><a href="builder.html">⚡ Builder</a><a href="others.html">🌟 More</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | NextGenIT Course 2025</p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

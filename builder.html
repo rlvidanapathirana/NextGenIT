@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prompt Builder | NextGenIT AI Guide</title>
+<link rel="stylesheet" href="shared.css"/>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'si,ta,en',layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+.hero{background:linear-gradient(135deg,#fff7ed,#fef3c7);padding-bottom:50px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#1c0f00,#180c00);}
+.builder-card{background:var(--bg2);border:2px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:.8rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.field label span{color:var(--muted);font-weight:400;text-transform:none;font-size:.78rem;}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;background:var(--bg3);border:2px solid var(--border);border-radius:10px;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;outline:none;transition:border .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);}
+.field textarea{resize:vertical;min-height:80px;}
+.field select option{background:var(--bg2);}
+.gen-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:900;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.5px;}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(79,70,229,.4);}
+.output-box{background:var(--bg3);border:2px solid var(--accent);border-radius:12px;padding:20px;margin-top:24px;display:none;position:relative;}
+.output-box.show{display:block;animation:fadeUp .4s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.output-label{font-size:.7rem;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.output-text{font-family:'Fira Code',monospace;font-size:.85rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;}
+.output-actions{display:flex;gap:10px;margin-top:16px;}
+.copy-all-btn{flex:1;padding:11px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:.88rem;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.copy-all-btn:hover{background:var(--accent2);transform:translateY(-1px);}
+.copy-all-btn.copied{background:var(--green);}
+.clear-btn{padding:11px 20px;background:var(--bg3);border:2px solid var(--border);border-radius:10px;font-size:.88rem;font-weight:800;cursor:pointer;color:var(--muted);transition:all .2s;}
+.clear-btn:hover{border-color:var(--red);color:var(--red);}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.field-grid{grid-template-columns:1fr;}}
+.template-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:28px;}
+.template-btn{padding:12px 14px;background:var(--card);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:.82rem;font-weight:700;color:var(--text);transition:all .2s;text-align:left;line-height:1.4;}
+.template-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.char-count{font-size:.72rem;color:var(--muted);text-align:right;margin-top:4px;}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ AI Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html" class="active">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap"><div id="google_translate_element"></div></div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero page-content">
+  <div class="container" style="text-align:center;">
+    <span class="hero-emoji">⚡</span>
+    <h1>AI Prompt <span>Builder</span></h1>
+    <p>Fill in the blanks — we'll build the perfect prompt for you automatically! Then just copy and paste it into any AI tool.</p>
+    <div class="hero-badges">
+      <span class="badge badge-blue">🤖 Works with Any AI</span>
+      <span class="badge badge-green">⚡ Instant Results</span>
+      <span class="badge badge-gold">📋 One-Click Copy</span>
+    </div>
+  </div>
+</div>
+
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">⚡ Quick Start Templates</span>
+  <h2 class="sec-h">Start with a <span>Template</span></h2>
+  <p class="sec-sub">Click any template below to auto-fill the builder — then customize it to your needs!</p>
+
+  <div class="template-grid">
+    <button class="template-btn" onclick="loadTemplate('email')">📧 Write a Work Email</button>
+    <button class="template-btn" onclick="loadTemplate('sinhala')">🇱🇰 Sinhala Business Letter</button>
+    <button class="template-btn" onclick="loadTemplate('social')">📱 Social Media Post</button>
+    <button class="template-btn" onclick="loadTemplate('report')">📊 Data Analysis Report</button>
+    <button class="template-btn" onclick="loadTemplate('explain')">🎓 Explain a Topic Simply</button>
+    <button class="template-btn" onclick="loadTemplate('code')">💻 Code Review</button>
+    <button class="template-btn" onclick="loadTemplate('translate')">🔤 Translation Task</button>
+    <button class="template-btn" onclick="loadTemplate('image')">🖼️ Generate an Image</button>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <span class="sec-tag">🛠️ Build Your Prompt</span>
+  <h2 class="sec-h">Fill in the <span>Blanks</span></h2>
+  <p class="sec-sub">You don't need to fill every field — just the ones that are relevant to your task. More fields = better prompt!</p>
+
+  <div class="builder-card">
+    <div class="field-grid">
+      <div class="field">
+        <label>🎭 Persona <span>(Who should the AI be?)</span></label>
+        <input type="text" id="b-persona" placeholder="e.g. You are an expert marketing consultant..." oninput="updatePreview()"/>
+      </div>
+      <div class="field">
+        <label>✅ Task <span>(What should the AI DO?)</span></label>
+        <input type="text" id="b-task" placeholder="e.g. Write 5 social media post ideas..." oninput="updatePreview()"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>🌍 Context <span>(Background info — who is this for? what's the situation?)</span></label>
+      <textarea id="b-context" placeholder="e.g. Target audience is young Sri Lankans aged 18–25 in Colombo who love technology. Budget is Rs. 5,000..." oninput="updatePreview()"></textarea>
+    </div>
+
+    <div class="field">
+      <label>📖 References <span>(Examples or style guide for the AI to follow)</span></label>
+      <textarea id="b-refs" placeholder="e.g. Use a friendly, casual tone similar to this example: 'Hey tech lovers! Ready to level up your productivity?'..." oninput="updatePreview()" style="min-height:60px;"></textarea>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label>📋 Output Format <span>(How should the answer look?)</span></label>
+        <select id="b-format" onchange="updatePreview()">
+          <option value="">Choose format...</option>
+          <option value="Present your response as a numbered list.">📋 Numbered List</option>
+          <option value="Present your response as bullet points.">• Bullet Points</option>
+          <option value="Present your response as a comparison table.">📊 Comparison Table</option>
+          <option value="Present your response as a formal letter or email.">📧 Formal Letter / Email</option>
+          <option value="Present your response as step-by-step instructions.">🔢 Step-by-Step</option>
+          <option value="Present your response as a structured report with headings.">📄 Structured Report</option>
+          <option value="Present your response as a short paragraph.">📝 Short Paragraph</option>
+          <option value="Present your response as a formal outline.">📑 Formal Outline</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>🌐 Output Language <span>(Which language?)</span></label>
+        <select id="b-lang" onchange="updatePreview()">
+          <option value="">Default / Any</option>
+          <option value="Write your entire response in English.">🇬🇧 English</option>
+          <option value="Write your entire response in Sinhala (සිංහල).">🇱🇰 Sinhala (සිංහල)</option>
+          <option value="Write your entire response in both English and Sinhala.">🌐 English + Sinhala</option>
+          <option value="Write your entire response in formal business English.">💼 Formal Business English</option>
+          <option value="Use simple, everyday language that a 12-year-old can understand.">🎓 Simple / Easy Language</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>🎯 Constraints <span>(Word limits, tone, things to avoid?)</span></label>
+      <input type="text" id="b-constraints" placeholder="e.g. Keep it under 150 words. No technical jargon. Friendly and warm tone. Include 3 hashtags..." oninput="updatePreview()"/>
+    </div>
+
+    <button class="gen-btn" onclick="buildPrompt()">⚡ Generate My Perfect Prompt</button>
+
+    <div class="output-box" id="outputBox">
+      <div class="output-label">✨ Your Generated Prompt — Ready to Copy & Paste!</div>
+      <div class="output-text" id="outputText"></div>
+      <div class="output-actions">
+        <button class="copy-all-btn" id="copyAllBtn" onclick="copyAll()">📋 Copy Full Prompt</button>
+        <button class="clear-btn" onclick="clearAll()">🗑️ Clear & Start Over</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">📖 How to Use This</span>
+  <h2 class="sec-h">3 Simple <span>Steps</span></h2>
+
+  <div class="steps-list">
+    <div class="step-item fade-in">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Fill in the fields (at least "Task")</h4>
+        <p>Type what you want in each box. The more you fill in, the better the prompt. "Task" is the most important one!</p>
+      </div>
+    </div>
+    <div class="step-item fade-in">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Click "Generate" and copy your prompt</h4>
+        <p>Your perfectly structured prompt appears instantly. Click the blue "Copy" button to copy it.</p>
+      </div>
+    </div>
+    <div class="step-item fade-in">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Paste it into ChatGPT / Gemini / Dialog AI / any AI!</h4>
+        <p>Open any AI tool, paste your prompt, and press Enter. Enjoy your amazing answer! 🎉</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box fade-in" style="margin-top:20px;">
+    <span class="tip-icon">💡</span>
+    <p><strong>Pro tip:</strong> If the answer isn't quite right, go back and add more context or change the format. Good prompts are improved over time — this is the "Iterate" step of T.C.R.E.I!</p>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><a href="guide.html">📖 Framework</a><a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a><a href="practice.html">✏️ Practice</a><a href="builder.html">⚡ Builder</a><a href="others.html">🌟 More</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | NextGenIT Course 2025</p>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const templates = {
+  email: {
+    persona: "You are a professional business communicator",
+    task: "Write a polite follow-up email to a client who hasn't replied in 3 days",
+    context: "The client [Client Name] attended our product demo last Monday. They seemed very interested. My company is a software startup in Colombo.",
+    refs: "",
+    format: "Present your response as a formal letter or email.",
+    lang: "Write your entire response in formal business English.",
+    constraints: "Keep it under 120 words. Friendly but professional tone. End with a clear call-to-action."
+  },
+  sinhala: {
+    persona: "ඔබ professional ව්‍යාපාරික ලේඛකයෙකි",
+    task: "Write a formal business apology letter in Sinhala",
+    context: "[Company Name] සමාගමේ පාරිභෝගිකයෙකු වෙත — service delay සම්බන්ධයෙන් සමාව ඉල්ලීමේ ලිපියකි",
+    refs: "",
+    format: "Present your response as a formal letter or email.",
+    lang: "Write your entire response in Sinhala (සිංහල).",
+    constraints: "Words 200ක් ඇතුළත. ගෞරවනීය tone. Formal Sinhala business letter format."
+  },
+  social: {
+    persona: "You are a creative social media manager",
+    task: "Write 3 engaging Instagram captions for my business",
+    context: "My business is [Business Name] — a [type of business] in Colombo, Sri Lanka. Target audience: [age group] who love [interest].",
+    refs: "",
+    format: "Present your response as a numbered list.",
+    lang: "Write your entire response in English.",
+    constraints: "Each caption under 100 words. Include 1 call-to-action and 3-5 relevant hashtags including #SriLanka. Energetic, fun tone."
+  },
+  report: {
+    persona: "You are a senior business analyst",
+    task: "Analyze the sales data and write a summary report",
+    context: "The data is for [Company Name]'s Q3 2024 sales in Sri Lanka. The report is for the CEO.",
+    refs: "",
+    format: "Present your response as a structured report with headings.",
+    lang: "Write your entire response in formal business English.",
+    constraints: "Under 400 words. Include top 3 insights and 2 recommendations. No technical jargon."
+  },
+  explain: {
+    persona: "You are a friendly teacher who is great at explaining complex topics simply",
+    task: "Explain [Topic] in the simplest possible way",
+    context: "My audience is a [Grade/Age] student who has no prior knowledge of this topic. This is for their school homework.",
+    refs: "",
+    format: "Present your response as step-by-step instructions.",
+    lang: "Use simple, everyday language that a 12-year-old can understand.",
+    constraints: "Under 200 words. Use a real-life analogy. No scientific jargon. Make it interesting!"
+  },
+  code: {
+    persona: "You are a senior software engineer specializing in code review and optimization",
+    task: "Review my code and suggest improvements",
+    context: "This is a [Python/JavaScript/etc.] function for a [web app/mobile app/etc.]. It needs to be production-ready.",
+    refs: "",
+    format: "Present your response as a numbered list.",
+    lang: "Write your entire response in English.",
+    constraints: "Point out: (1) security issues, (2) performance improvements, (3) PEP8/style issues. Be specific with line numbers. Suggest the fixed code."
+  },
+  translate: {
+    persona: "You are a professional translator with expertise in business communication",
+    task: "Translate the following text accurately",
+    context: "This is a [business email / formal letter / social media post] written in [source language]. It will be sent to [audience].",
+    refs: "",
+    format: "Present your response as a formal letter or email.",
+    lang: "Write your entire response in Sinhala (සිංහල).",
+    constraints: "Keep the formal tone. Preserve all names and proper nouns. [Paste text to translate below the prompt]"
+  },
+  image: {
+    persona: "",
+    task: "Generate a professional image for my business",
+    context: "The image is for [LinkedIn banner / website hero / social media post] for a [type of business] in Sri Lanka.",
+    refs: "",
+    format: "",
+    lang: "",
+    constraints: "Style: [modern and clean / vibrant and energetic / professional and corporate]. Colors: [brand colors]. Include: [logo space / text area]. 16:9 ratio."
+  }
+};
+
+function loadTemplate(name) {
+  const t = templates[name];
+  if (!t) return;
+  document.getElementById('b-persona').value = t.persona;
+  document.getElementById('b-task').value = t.task;
+  document.getElementById('b-context').value = t.context;
+  document.getElementById('b-refs').value = t.refs;
+  document.getElementById('b-constraints').value = t.constraints;
+  // Set select values
+  const fmtSel = document.getElementById('b-format');
+  for (let opt of fmtSel.options) { if (opt.value === t.format) { fmtSel.value = t.format; break; } }
+  const langSel = document.getElementById('b-lang');
+  for (let opt of langSel.options) { if (opt.value === t.lang) { langSel.value = t.lang; break; } }
+  document.getElementById('b-persona').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function buildPrompt() {
+  const persona = document.getElementById('b-persona').value.trim();
+  const task = document.getElementById('b-task').value.trim();
+  const ctx = document.getElementById('b-context').value.trim();
+  const refs = document.getElementById('b-refs').value.trim();
+  const fmt = document.getElementById('b-format').value;
+  const lang = document.getElementById('b-lang').value;
+  const constraints = document.getElementById('b-constraints').value.trim();
+
+  if (!task) {
+    alert('Please fill in the Task field at minimum — what should the AI DO?');
+    document.getElementById('b-task').focus();
+    return;
+  }
+
+  let parts = [];
+  if (persona) parts.push(persona + '.');
+  parts.push(task + '.');
+  if (ctx) parts.push('\nContext: ' + ctx);
+  if (refs) parts.push('\nReference / Style guide: ' + refs);
+  if (fmt) parts.push('\n' + fmt);
+  if (constraints) parts.push('\nAdditional requirements: ' + constraints);
+  if (lang) parts.push('\n' + lang);
+
+  const prompt = parts.join(' ');
+  document.getElementById('outputText').textContent = prompt;
+  const ob = document.getElementById('outputBox');
+  ob.classList.add('show');
+  ob.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function updatePreview() {
+  // Live preview — only if output is already showing
+  const ob = document.getElementById('outputBox');
+  if (ob.classList.contains('show')) buildPrompt();
+}
+
+function copyAll() {
+  const text = document.getElementById('outputText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyAllBtn');
+    btn.innerHTML = '✅ Copied to Clipboard!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '📋 Copy Full Prompt'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+function clearAll() {
+  ['b-persona','b-task','b-context','b-refs','b-constraints'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('b-format').value = '';
+  document.getElementById('b-lang').value = '';
+  document.getElementById('outputBox').classList.remove('show');
+}
+</script>
+</body>
+</html>

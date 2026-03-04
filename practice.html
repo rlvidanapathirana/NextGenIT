@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Practice & Quiz | NextGenIT AI Guide</title>
+<link rel="stylesheet" href="shared.css"/>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'si,ta,en',layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+.hero{background:linear-gradient(135deg,#fdf4ff,#f0fdf4);padding-bottom:50px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#14001f,#001f0f);}
+.practice-wrap{background:var(--bg2);border:2px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:32px;}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ AI Tools</a>
+    <a href="practice.html" class="active">✏️ Practice</a>
+    <a href="builder.html">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap"><div id="google_translate_element"></div></div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero page-content">
+  <div class="container" style="text-align:center;">
+    <span class="hero-emoji">✏️</span>
+    <h1>Practice & <span>Test Yourself</span></h1>
+    <p>Improve bad prompts, then take the quiz to see how much you've learned! No pressure — you can retry as many times as you want.</p>
+  </div>
+</div>
+
+<!-- PRACTICE SECTION -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">🔧 Practice Exercise</span>
+  <h2 class="sec-h">Fix the <span>Bad Prompts!</span></h2>
+  <p class="sec-sub">Each exercise shows a weak prompt. Think about how YOU would improve it — then click "Reveal" to see the suggested answer!</p>
+
+  <div class="practice-wrap">
+    <div class="practice-tabs">
+      <button class="ptab on" onclick="showPTab('pr1', this)">📧 Work Email</button>
+      <button class="ptab" onclick="showPTab('pr2', this)">📱 Social Media</button>
+      <button class="ptab" onclick="showPTab('pr3', this)">📊 Data Analysis</button>
+      <button class="ptab" onclick="showPTab('pr4', this)">🇱🇰 Sinhala Task</button>
+      <button class="ptab" onclick="showPTab('pr5', this)">🎓 Student Task</button>
+    </div>
+
+    <div class="pcon show" id="pr1">
+      <h3 style="font-size:1rem;font-weight:900;margin-bottom:10px;">Challenge 1: Work Meeting Email</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:8px;">This prompt is too vague. What's missing?</p>
+      <div class="bad-prompt">❌ Weak Prompt: "Write me an email about the meeting."</div>
+      <div class="tip-box" style="margin:12px 0;">
+        <span class="tip-icon">🤔</span>
+        <p><strong>Think about it:</strong> Who gets this email? When is the meeting? What's it about? What tone? What should people prepare?</p>
+      </div>
+      <button class="reveal-btn" onclick="reveal('pr1-ans')">✨ Reveal the Improved Prompt</button>
+      <div class="good-prompt" id="pr1-ans">✅ Improved Prompt:
+
+"You are a professional business communicator. Write a concise, polite email to my team of 8 software developers reminding them about our sprint review meeting this Friday at 2PM (Sri Lanka time). The tone should be friendly but professional. Include: (1) the meeting purpose (review Q3 sprint deliverables), (2) what they should prepare (updated task status in Jira), and (3) a Zoom link placeholder [INSERT ZOOM LINK]. Keep it under 150 words."
+
+💡 What improved: Persona ✅ | Who receives it ✅ | When & what ✅ | What to prepare ✅ | Tone ✅ | Word limit ✅</div>
+    </div>
+
+    <div class="pcon" id="pr2">
+      <h3 style="font-size:1rem;font-weight:900;margin-bottom:10px;">Challenge 2: Social Media Posts</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:8px;">This is way too vague. What's the AI supposed to do?!</p>
+      <div class="bad-prompt">❌ Weak Prompt: "Write social media posts."</div>
+      <div class="tip-box" style="margin:12px 0;">
+        <span class="tip-icon">🤔</span>
+        <p><strong>Think about it:</strong> Which platform (Instagram/Facebook/LinkedIn)? What business? Who is the audience? What language? How many posts? What tone?</p>
+      </div>
+      <button class="reveal-btn" onclick="reveal('pr2-ans')">✨ Reveal the Improved Prompt</button>
+      <div class="good-prompt" id="pr2-ans">✅ Improved Prompt:
+
+"You are a social media manager for a Sri Lankan tech startup. Write 3 engaging Instagram captions promoting our new AI productivity app 'FlowAI'. Target audience: young professionals aged 22–35 in Colombo. Tone: energetic, modern, with a hint of Sri Lankan flavor. Each caption must: (1) be under 100 words, (2) include 1 clear call-to-action ('Download now', 'Try for free'), and (3) end with 3–5 relevant hashtags including #SriLankaTech. Write in English."
+
+💡 What improved: Persona ✅ | Platform ✅ | Product ✅ | Audience ✅ | Tone ✅ | Format ✅ | Number ✅ | Language ✅</div>
+    </div>
+
+    <div class="pcon" id="pr3">
+      <h3 style="font-size:1rem;font-weight:900;margin-bottom:10px;">Challenge 3: Data Analysis</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:8px;">Generic and useless. What's the actual goal here?</p>
+      <div class="bad-prompt">❌ Weak Prompt: "Analyze this data."</div>
+      <div class="tip-box" style="margin:12px 0;">
+        <span class="tip-icon">🤔</span>
+        <p><strong>Think about it:</strong> What type of data? What analysis is needed? What output format? Who will read the results? What decisions will this inform?</p>
+      </div>
+      <button class="reveal-btn" onclick="reveal('pr3-ans')">✨ Reveal the Improved Prompt</button>
+      <div class="good-prompt" id="pr3-ans">✅ Improved Prompt:
+
+"You are a senior business analyst. I will provide monthly sales data for a Sri Lankan retail business (Q1–Q3 2024). Please: (1) Identify the top 3 performing months and briefly explain WHY they may have performed well, (2) Highlight any concerning downward trends with specific numbers, (3) Give 3 specific, actionable recommendations for Q4 to improve sales. Present your findings as a structured report with clear headings and bullet points. Use simple, non-technical language — this report is for the business owner, not a data scientist. [Paste data below]"
+
+💡 What improved: Persona ✅ | What data ✅ | What to find ✅ | Format ✅ | Audience ✅ | Language style ✅</div>
+    </div>
+
+    <div class="pcon" id="pr4">
+      <h3 style="font-size:1rem;font-weight:900;margin-bottom:10px;">Challenge 4: Sinhala Business Letter</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:8px;">In Sinhala, context is everything. This tells the AI nothing!</p>
+      <div class="bad-prompt">❌ Weak Prompt: "ලිපියක් ලියන්න."</div>
+      <div class="tip-box" style="margin:12px 0;">
+        <span class="tip-icon">🤔</span>
+        <p><strong>Think about it:</strong> Who is writing the letter? To whom? What is the purpose? What tone? How long? What language?</p>
+      </div>
+      <button class="reveal-btn" onclick="reveal('pr4-ans')">✨ Reveal the Improved Prompt</button>
+      <div class="good-prompt" id="pr4-ans">✅ Improved Prompt:
+
+"ඔබ professional ව්‍යාපාරික ලේඛකයෙකි. [Company Name] සමාගමේ [Manager Name] වෙත ස්තූතිය පිළිබඳ ගෞරවනීය සිංහල ව්‍යාපාරික ලිපියක් ලියන්න. ලිපිය: (1) ඉතා ගෞරවාදරයෙන් ආරම්භ කරන්න, (2) [Specific Achievement/Project] සඳහා කෘතඥතාව ප්‍රකාශ කරන්න, (3) අනාගතයේ සහයෝගය ලබා ගැනීමට ඉල්ලීමෙන් අවසන් කරන්න. ලිපිය words 150-200 ඇතුළත රකින්න. Formal Sinhala business letter format use කරන්න."
+
+💡 What improved: Persona ✅ | Who writes it ✅ | To whom ✅ | Purpose ✅ | Structure ✅ | Length ✅ | Format ✅</div>
+    </div>
+
+    <div class="pcon" id="pr5">
+      <h3 style="font-size:1rem;font-weight:900;margin-bottom:10px;">Challenge 5: Student Study Help</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:8px;">A common student mistake — too vague and no format!</p>
+      <div class="bad-prompt">❌ Weak Prompt: "Explain photosynthesis."</div>
+      <div class="tip-box" style="margin:12px 0;">
+        <span class="tip-icon">🤔</span>
+        <p><strong>Think about it:</strong> What level? How long? With examples? What format? Should it include diagrams/steps? For an exam or just to understand?</p>
+      </div>
+      <button class="reveal-btn" onclick="reveal('pr5-ans')">✨ Reveal the Improved Prompt</button>
+      <div class="good-prompt" id="pr5-ans">✅ Improved Prompt:
+
+"You are a friendly biology teacher explaining to a 12-year-old Grade 8 student. Explain photosynthesis in the simplest possible way using: (1) a real-life analogy (like a factory or kitchen), (2) the main formula in simple words (not just symbols), and (3) a numbered step-by-step process with maximum 4 steps. No complicated science jargon. Make it interesting and fun! Keep the total explanation under 200 words."
+
+💡 What improved: Persona (teacher) ✅ | Who is the audience (12yr old) ✅ | Format (analogy + steps) ✅ | Tone (fun) ✅ | Word limit ✅ | No jargon ✅</div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section class="section">
+<div class="container">
+  <span class="sec-tag">🧠 Knowledge Quiz</span>
+  <h2 class="sec-h">Test What You <span>Learned!</span></h2>
+  <p class="sec-sub">5 questions about AI prompting. Click an answer — instant feedback! Retry as many times as you want.</p>
+
+  <div id="quizArea">
+    <div class="quiz-card fade-in" id="q1">
+      <div class="quiz-q">Question 1: In the T.C.R.E.I framework, what does the letter "C" stand for?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q1',5)">A) Content</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'correct','q1',5)">B) Context</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q1',5)">C) Copy</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q1',5)">D) Command</button>
+      </div>
+      <div class="quiz-fb" id="q1-ok">✅ Correct! "C" = Context — the background information about your situation, audience, and constraints. This helps AI understand your world!</div>
+      <div class="quiz-fb" id="q1-no">❌ Not quite! "C" stands for Context — giving the AI background information like who the audience is, what the situation is, and what constraints you have.</div>
+    </div>
+
+    <div class="quiz-card fade-in" id="q2">
+      <div class="quiz-q">Question 2: You show the AI 4 examples before asking your question. What type of prompting is this called?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q2',5)">A) Zero-Shot Prompting</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q2',5)">B) Single-Shot Prompting</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'correct','q2',5)">C) Few-Shot Prompting</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q2',5)">D) Multi-Round Prompting</button>
+      </div>
+      <div class="quiz-fb" id="q2-ok">✅ Correct! Few-Shot = 3 or more examples. The AI learns your style from those examples and produces consistent, on-brand results!</div>
+      <div class="quiz-fb" id="q2-no">❌ Not quite! 4 examples = Few-Shot Prompting. Zero-Shot = no examples. Single-Shot = exactly 1 example. Few-Shot = 3 or more!</div>
+    </div>
+
+    <div class="quiz-card fade-in" id="q3">
+      <div class="quiz-q">Question 3: Your AI answer is too generic and has no personality. The FASTEST fix is to add what to your prompt?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q3',5)">A) More words</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'correct','q3',5)">B) A Persona ("You are an expert...")</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q3',5)">C) Switch to a different AI tool</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q3',5)">D) Remove all formatting instructions</button>
+      </div>
+      <div class="quiz-fb" id="q3-ok">✅ Correct! Adding a Persona instantly gives AI a specific voice, expertise, and tone to write from. "You are a friendly doctor" vs "You are a corporate lawyer" gives totally different results!</div>
+      <div class="quiz-fb" id="q3-no">❌ The best fix is adding a Persona (B)! Saying "You are an expert [X]" gives AI a specific voice and expertise level to write from — completely transforms the answer!</div>
+    </div>
+
+    <div class="quiz-card fade-in" id="q4">
+      <div class="quiz-q">Question 4: Which AI platform is BEST for research with real, clickable source links?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q4',5)">A) Dialog AI</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q4',5)">B) ChatGPT</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'correct','q4',5)">C) Perplexity AI</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q4',5)">D) Venngage</button>
+      </div>
+      <div class="quiz-fb" id="q4-ok">✅ Correct! Perplexity AI is specifically designed for research — every single answer comes with clickable links to the real sources it used!</div>
+      <div class="quiz-fb" id="q4-no">❌ Perplexity AI (C) is the research specialist! It always shows you clickable source links for every answer, so you can verify everything it tells you.</div>
+    </div>
+
+    <div class="quiz-card fade-in" id="q5">
+      <div class="quiz-q">Question 5: What is the best thing to do if your AI answer is NOT what you wanted?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q5',5)">A) Give up and do it manually</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q5',5)">B) Accept the answer and use it anyway</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'wrong','q5',5)">C) Switch to a completely different AI</button>
+        <button class="quiz-opt" onclick="answerQuiz(this,'correct','q5',5)">D) Iterate — add more detail or change your prompt</button>
+      </div>
+      <div class="quiz-fb" id="q5-ok">✅ Correct! Iterate = keep improving your prompt. Add missing context, change the format, add a persona, or break it into smaller steps. The best prompts are written through iteration!</div>
+      <div class="quiz-fb" id="q5-no">❌ The answer is Iterate (D)! Fix your prompt by adding context, changing wording, adding a persona, or breaking it into steps. Never give up after one try — all good prompters iterate!</div>
+    </div>
+
+    <div class="quiz-score" id="quizScore">
+      <div style="font-size:2.5rem;margin-bottom:12px;">🎉</div>
+      <div class="score-big" id="scoreNum">0/5</div>
+      <p id="scoreMsg" style="font-size:1rem;font-weight:700;color:var(--muted);margin:10px 0 20px;"></p>
+      <button class="btn btn-primary" onclick="resetQuiz()">🔄 Try Again</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">📌 Quick Reference</span>
+  <h2 class="sec-h">Prompting <span>Cheat Sheet</span></h2>
+  <p class="sec-sub">Save this or screenshot it — your quick reference for writing great prompts every time!</p>
+
+  <div class="card fade-in" style="border:2px solid var(--accent);">
+    <h3 style="font-weight:900;margin-bottom:18px;font-size:1.1rem;">⚡ The Perfect Prompt Formula</h3>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num" style="background:#4f46e5;">T</div>
+        <div class="step-content">
+          <h4>Task — What should AI DO?</h4>
+          <p>"Write / List / Explain / Create / Translate / Summarize / Analyze..."</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#7c3aed;">P</div>
+        <div class="step-content">
+          <h4>Persona — Who should AI BE?</h4>
+          <p>"You are a [expert/teacher/lawyer/chef/marketing manager]..."</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#f59e0b;">C</div>
+        <div class="step-content">
+          <h4>Context — What's the situation?</h4>
+          <p>"For my [audience]. Budget is [X]. It's for [purpose]. Tone should be [X]..."</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#10b981;">F</div>
+        <div class="step-content">
+          <h4>Format — How should the answer look?</h4>
+          <p>"In a numbered list / as a table / in bullet points / as a formal email / under [X] words..."</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#ef4444;">L</div>
+        <div class="step-content">
+          <h4>Language — Sinhala or English?</h4>
+          <p>"Write the response in Sinhala / in formal English / in simple everyday language..."</p>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:20px;">
+      <span class="tip-icon">💡</span>
+      <p><strong>Example putting it all together:</strong> "You are a friendly biology teacher (Persona). Explain photosynthesis (Task) to a 12-year-old Grade 8 student (Context). Use a simple analogy and numbered steps (Format). Keep it under 200 words, no jargon (Constraints). Write in simple English (Language)."</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container" style="text-align:center;">
+  <h2 class="sec-h">Ready to Try Real <span>Prompts?</span></h2>
+  <p class="sec-sub" style="margin:0 auto 24px;">Browse 60+ copy-paste ready prompts across 8 AI platforms!</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="prompts.html" class="btn btn-primary">💬 Go to Prompt Library →</a>
+    <a href="builder.html" class="btn btn-outline">⚡ Try the Prompt Builder</a>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><a href="guide.html">📖 Framework</a><a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a><a href="practice.html">✏️ Practice</a><a href="builder.html">⚡ Builder</a><a href="others.html">🌟 More</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | NextGenIT Course 2025</p>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

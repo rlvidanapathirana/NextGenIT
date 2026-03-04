@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AI Prompting Guide | NextGenIT — Learn AI the Easy Way!</title>
+<link rel="stylesheet" href="shared.css"/>
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage:'en',
+    includedLanguages:'si,ta,en',
+    layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay:false
+  },'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+.hero{background:linear-gradient(135deg,#eef2ff 0%,#f5f3ff 50%,#ecfdf5 100%);padding-bottom:80px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#0d0d1f 0%,#13132b 50%,#0d1f1a 100%);}
+.big-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:20px;}
+.big-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;text-decoration:none;color:var(--text);transition:all .25s;display:block;box-shadow:var(--shadow);}
+.big-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 12px 36px rgba(79,70,229,.2);}
+.big-card .icon{font-size:2.4rem;margin-bottom:12px;display:block;}
+.big-card h3{font-size:.95rem;font-weight:900;margin-bottom:6px;}
+.big-card p{font-size:.8rem;color:var(--muted);}
+.big-card .count{display:inline-block;margin-top:10px;background:var(--accent);color:#fff;padding:3px 12px;border-radius:20px;font-size:.7rem;font-weight:800;}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px 0;}
+.stat-box{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow);}
+.stat-num{font-size:2rem;font-weight:900;color:var(--accent);}
+.stat-label{font-size:.76rem;color:var(--muted);font-weight:700;}
+@media(max-width:600px){.stat-row{grid-template-columns:1fr 1fr;}}
+.step-boxes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0;}
+.step-box{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:18px 12px;text-align:center;transition:all .25s;box-shadow:var(--shadow);}
+.step-box:hover{transform:translateY(-5px);border-color:var(--accent);}
+.step-letter{font-size:2.2rem;font-weight:900;display:block;margin-bottom:6px;}
+.step-word{font-size:.85rem;font-weight:800;margin-bottom:4px;}
+.step-si{font-size:.72rem;color:var(--muted);}
+@media(max-width:700px){.step-boxes{grid-template-columns:1fr 1fr;}}
+.ai-chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0;}
+.ai-chip{padding:8px 16px;border-radius:20px;font-size:.82rem;font-weight:700;border:2px solid;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="active">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ AI Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap">
+      <div id="google_translate_element"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="hero page-content">
+  <div class="container">
+    <span class="hero-emoji">🤖</span>
+    <h1>Learn <span>AI Prompting</span><br/>The Easy Way! 🚀</h1>
+    <p>Even a 10-year-old can learn this! Find out how to talk to AI so it gives you <strong>super helpful answers</strong> every single time. Free, in English, Sinhala & Tamil!</p>
+    <div class="hero-badges">
+      <span class="badge badge-blue">📚 80+ Ready Prompts</span>
+      <span class="badge badge-green">🆓 100% Free</span>
+      <span class="badge badge-gold">🌐 English + සිංහල + தமிழ்</span>
+      <span class="badge badge-pink">🤖 7 AI Tools Covered</span>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="guide.html" class="btn btn-primary">🚀 Start Learning →</a>
+      <a href="prompts.html" class="btn btn-outline">💬 Copy Prompts</a>
+    </div>
+
+    <!-- AI chips -->
+    <div class="ai-chips" style="margin-top:32px;">
+      <span class="ai-chip" style="border-color:#7c3aed;color:#7c3aed;background:rgba(124,58,237,.08);">🗣️ Dialog AI</span>
+      <span class="ai-chip" style="border-color:#10b981;color:#10b981;background:rgba(16,185,129,.08);">🤖 ChatGPT</span>
+      <span class="ai-chip" style="border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.08);">✨ Gemini</span>
+      <span class="ai-chip" style="border-color:#374151;color:#374151;background:rgba(55,65,81,.08);">⚡ Grok</span>
+      <span class="ai-chip" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,.08);">🧠 Claude</span>
+      <span class="ai-chip" style="border-color:#14b8a6;color:#14b8a6;background:rgba(20,184,166,.08);">🔍 Perplexity</span>
+      <span class="ai-chip" style="border-color:#1d4ed8;color:#1d4ed8;background:rgba(29,78,216,.08);">🔷 Copilot</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<section class="section alt">
+<div class="container">
+  <div class="stat-row">
+    <div class="stat-box fade-in"><div class="stat-num">80+</div><div class="stat-label">Ready-to-Use Prompts</div></div>
+    <div class="stat-box fade-in"><div class="stat-num">7</div><div class="stat-label">AI Platforms Covered</div></div>
+    <div class="stat-box fade-in"><div class="stat-num">3</div><div class="stat-label">Languages Supported</div></div>
+    <div class="stat-box fade-in"><div class="stat-num">6</div><div class="stat-label">Learning Pages</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== WHAT IS AI PROMPTING ===== -->
+<section class="section">
+<div class="container">
+  <span class="sec-tag">🤔 Start Here — What is this?</span>
+  <h2 class="sec-h">What is <span>AI Prompting</span>?</h2>
+  <p class="sec-sub">Think of AI like a super smart friend who can help you with anything. A <strong>prompt</strong> is just what you TYPE to ask it. The better you ask, the better the answer you get!</p>
+
+  <div class="good-bad-grid fade-in">
+    <div class="gb-card gb-bad">
+      <div class="gb-head">❌ Bad Prompt — Gets a boring answer</div>
+      <div class="gb-body">
+        <div class="gb-prompt">"Write an email."</div>
+        <div class="gb-why">😕 The AI doesn't know <em>who</em> to write to, <em>what</em> the email is about, or <em>what tone</em> to use. So it gives you something boring and useless.</div>
+      </div>
+    </div>
+    <div class="gb-card gb-good">
+      <div class="gb-head">✅ Good Prompt — Gets an amazing answer!</div>
+      <div class="gb-body">
+        <div class="gb-prompt">"<span class="highlight">You are a professional writer.</span> Write a <span class="highlight">polite follow-up email</span> to my client who hasn't replied in 3 days. Keep it <span class="highlight">under 100 words</span> and <span class="highlight">friendly but professional</span>."</div>
+        <div class="gb-why">✨ Now the AI knows WHO to be, WHAT to write, HOW long, and WHAT tone — perfect answer every time!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box fade-in">
+    <span class="tip-icon">💡</span>
+    <p><strong>Golden Rule:</strong> The more details you give the AI, the better its answer will be. Think of it like telling a very smart friend exactly what you need — don't leave anything out!</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== TCREI FRAMEWORK ===== -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">🎯 The Magic Formula</span>
+  <h2 class="sec-h">The <span>T.C.R.E.I</span> Framework</h2>
+  <p class="sec-sub">5 magic ingredients for a perfect prompt! Use these every time and you'll always get amazing results. (From Google's Prompting Essentials course)</p>
+
+  <div class="step-boxes">
+    <div class="step-box fade-in" style="border-color:#4f46e5;">
+      <span class="step-letter" style="color:#4f46e5;">T</span>
+      <div class="step-word">Task</div>
+      <div class="step-si">කාර්යය / பணி</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-top:6px;">What do you want AI to DO?</div>
+    </div>
+    <div class="step-box fade-in" style="border-color:#7c3aed;">
+      <span class="step-letter" style="color:#7c3aed;">C</span>
+      <div class="step-word">Context</div>
+      <div class="step-si">සන්දර්භය / சூழல்</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-top:6px;">Background info about your situation</div>
+    </div>
+    <div class="step-box fade-in" style="border-color:#f59e0b;">
+      <span class="step-letter" style="color:#f59e0b;">R</span>
+      <div class="step-word">References</div>
+      <div class="step-si">යොමු / குறிப்புகள்</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-top:6px;">Examples for AI to follow</div>
+    </div>
+    <div class="step-box fade-in" style="border-color:#10b981;">
+      <span class="step-letter" style="color:#10b981;">E</span>
+      <div class="step-word">Evaluate</div>
+      <div class="step-si">ඇගයීම / மதிப்பீடு</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-top:6px;">Check if the answer is good</div>
+    </div>
+    <div class="step-box fade-in" style="border-color:#ef4444;">
+      <span class="step-letter" style="color:#ef4444;">I</span>
+      <div class="step-word">Iterate</div>
+      <div class="step-si">නැවත ලිවීම / மீண்டும்</div>
+      <div style="font-size:.72rem;color:var(--muted);margin-top:6px;">Fix & improve your prompt</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:24px;">
+    <a href="guide.html" class="btn btn-primary">📖 Learn the Full Framework →</a>
+  </div>
+</div>
+</section>
+
+<!-- ===== PAGE NAVIGATION CARDS ===== -->
+<section class="section">
+<div class="container">
+  <span class="sec-tag">📚 Explore All Pages</span>
+  <h2 class="sec-h">Choose Your <span>Learning Path</span></h2>
+  <p class="sec-sub">6 pages, each teaching you something useful. Start anywhere — every page is easy to understand!</p>
+
+  <div class="big-cards">
+    <a href="guide.html" class="big-card fade-in">
+      <span class="icon">📖</span>
+      <h3>Prompting Framework</h3>
+      <p>Learn T.C.R.E.I step by step with fun, simple examples. Great starting point!</p>
+      <span class="count">Start Here →</span>
+    </a>
+    <a href="prompts.html" class="big-card fade-in">
+      <span class="icon">💬</span>
+      <h3>All Prompts Library</h3>
+      <p>80+ copy-paste ready prompts for ChatGPT, Gemini, Grok, Claude & more!</p>
+      <span class="count">80+ Prompts</span>
+    </a>
+    <a href="tools.html" class="big-card fade-in">
+      <span class="icon">🛠️</span>
+      <h3>AI Tools Guide</h3>
+      <p>Which AI should you use for what task? Easy comparison of all major AI tools.</p>
+      <span class="count">7 Tools Covered</span>
+    </a>
+    <a href="practice.html" class="big-card fade-in">
+      <span class="icon">✏️</span>
+      <h3>Practice &amp; Quiz</h3>
+      <p>Test yourself with exercises and a fun quiz. See how much you've learned!</p>
+      <span class="count">Interactive Quiz</span>
+    </a>
+    <a href="builder.html" class="big-card fade-in">
+      <span class="icon">⚡</span>
+      <h3>Prompt Builder</h3>
+      <p>Fill in the blanks and auto-build a perfect prompt. No thinking needed!</p>
+      <span class="count">Try the Builder</span>
+    </a>
+    <a href="others.html" class="big-card fade-in">
+      <span class="icon">🌟</span>
+      <h3>More AI Tools</h3>
+      <p>Discover extra AI tools for music, design, presentations, apps and more!</p>
+      <span class="count">Bonus Tools</span>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- ===== TRANSLATE HELP ===== -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">🌐 Translate This Page</span>
+  <h2 class="sec-h">Read in <span>Sinhala or Tamil</span></h2>
+  <p class="sec-sub">Can't read English well? No problem! Translate the whole page in one click using the translate button in the top navigation bar.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:8px;">
+    <div class="card fade-in" style="border-color:#7c3aed;">
+      <div style="font-size:1.8rem;margin-bottom:8px;">🇱🇰</div>
+      <h3 style="font-size:.95rem;font-weight:900;margin-bottom:6px;color:#7c3aed;">සිංහල / Sinhala</h3>
+      <p style="font-size:.82rem;color:var(--muted);">ඉහළ ඇති "🌐" බොත්තම ඔබා "Sinhala" තෝරන්න. සම්පූර්ණ page එක සිංහලෙන් කියවන්න පුළුවන්!</p>
+    </div>
+    <div class="card fade-in" style="border-color:#10b981;">
+      <div style="font-size:1.8rem;margin-bottom:8px;">🌴</div>
+      <h3 style="font-size:.95rem;font-weight:900;margin-bottom:6px;color:#10b981;">தமிழ் / Tamil</h3>
+      <p style="font-size:.82rem;color:var(--muted);">மேலே உள்ள "🌐" பொத்தானை அழுத்தி "Tamil" என்பதைத் தேர்ந்தெடுங்கள். முழு பக்கமும் தமிழில் படிக்கலாம்!</p>
+    </div>
+    <div class="card fade-in" style="border-color:#f59e0b;">
+      <div style="font-size:1.8rem;margin-bottom:8px;">💡</div>
+      <h3 style="font-size:.95rem;font-weight:900;margin-bottom:6px;color:#d97706;">How it works</h3>
+      <p style="font-size:.82rem;color:var(--muted);">Look at the top navigation bar. You will see a 🌐 icon with a language dropdown. Click it and pick your language!</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== QUICK TIP ===== -->
+<section class="section">
+<div class="container" style="text-align:center;">
+  <span class="sec-tag">💬 Did You Know?</span>
+  <h2 class="sec-h">A Better Prompt = A <span>10x Better Answer</span></h2>
+  <p class="sec-sub" style="margin:0 auto 24px;">Most people use AI like a search engine — they type just a few words. But AI is like a brilliant assistant. Give it a <strong>role</strong>, some <strong>context</strong>, and a clear <strong>task</strong> — and watch the magic happen!</p>
+  <a href="guide.html" class="btn btn-primary">🎓 Start Learning Now →</a>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | NextGenIT Course 2025</p>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

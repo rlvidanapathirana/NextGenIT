@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>All Prompts Library | NextGenIT AI Guide</title>
+<link rel="stylesheet" href="shared.css"/>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'si,ta,en',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+.hero{background:linear-gradient(135deg,#ecfdf5,#d1fae5);padding-bottom:50px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#0d1f1a,#0d0d1f);}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html" class="active">💬 Prompts</a>
+    <a href="tools.html">🛠️ AI Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap"><div id="google_translate_element"></div></div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero page-content">
+  <div class="container" style="text-align:center;">
+    <span class="hero-emoji">💬</span>
+    <h1><span>All Prompts</span> Library</h1>
+    <p>80+ ready-to-copy prompts for every AI tool! Click copy, paste into any AI, and you're done! 🚀</p>
+    <div class="hero-badges">
+      <span class="badge badge-blue">📋 Click to Copy</span>
+      <span class="badge badge-green">🔍 Search &amp; Filter</span>
+      <span class="badge badge-gold">📝 Replace [brackets] with your info</span>
+      <span class="badge badge-pink">🌐 Sinhala Prompts Included</span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+  <div class="tip-box" style="margin-bottom:24px;">
+    <span class="tip-icon">💡</span>
+    <p><strong>How to use these prompts:</strong> Click "📋 Copy" to copy the prompt. Open your AI (ChatGPT / Gemini / Grok / Claude / Dialog AI). Paste it. Replace anything in <strong>[square brackets]</strong> with your real information. Press Enter. Done! 🎉</p>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filter-row">
+    <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search prompts... (e.g. email, sinhala, excel, letter)"/>
+    <button class="filter-pill on" data-f="all" onclick="filterPlatform('all',this)">✨ All (80+)</button>
+    <button class="filter-pill" data-f="dialog" onclick="filterPlatform('dialog',this)">🗣️ Dialog AI</button>
+    <button class="filter-pill" data-f="chatgpt" onclick="filterPlatform('chatgpt',this)">🤖 ChatGPT</button>
+    <button class="filter-pill" data-f="gemini" onclick="filterPlatform('gemini',this)">✨ Gemini</button>
+    <button class="filter-pill" data-f="grok" onclick="filterPlatform('grok',this)">⚡ Grok</button>
+    <button class="filter-pill" data-f="claude" onclick="filterPlatform('claude',this)">🧠 Claude</button>
+    <button class="filter-pill" data-f="perplexity" onclick="filterPlatform('perplexity',this)">🔍 Perplexity</button>
+    <button class="filter-pill" data-f="copilot" onclick="filterPlatform('copilot',this)">🔷 Copilot</button>
+  </div>
+
+  <!-- ============================== -->
+  <!-- DIALOG AI — Sinhala specialist -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="dialog">
+    <span class="plat-icon">🗣️</span>
+    <div>
+      <span class="plat-name" style="color:#7c3aed;">Dialog AI</span><br/>
+      <span style="font-size:.78rem;color:var(--muted);">Sri Lanka's own AI — Best for Sinhala tasks! Visit: dialog.lk/ai</span>
+    </div>
+    <span class="plat-count">8 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-dialog">
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Sinhala Leave Request Letter</div><div class="prompt-cat">📝 Letter Drafting</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d1">මගේ වාර්ෂික නිවාඩු ඉල්ලීම සඳහා, කරුණාකර [Start Date] සිට [End Date] දක්වා නිවාඩු ඉල්ලුම් පත්‍රයක් ඉතා ගෞරවනීය අයුරින් අංශ ප්‍රධානියා වෙත ඉදිරිපත් කරන්න. නිවාඩු කාලය තුළ මගේ සියලු කටයුතු [Colleague Name] වෙත භාර දී ඇති බවත් සඳහන් කරන්න.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d1" onclick="toggleExpand('d1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Formal Sinhala Business Email</div><div class="prompt-cat">📧 Email Drafting</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d2">කරුණාකර [Client Name] සමාගම වෙත යැවීමට විධිමත් සිංහල විද්‍යුත් තැපෑලක් ලියන්න. ඔවුන්ගේ [Invoice Number] සඳහා ගෙවීම දින 7 කින් ප්‍රමාද වී ඇති බව දැනුම් දී, ගෙවීම හැකි ඉක්මනින් සිදු කරන ලෙස ඉල්ලා සිටින්න.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d2" onclick="toggleExpand('d2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Sinhala Apology Email to Customer</div><div class="prompt-cat">📧 Email Drafting</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d3">ගැටලුවක් හේතුවෙන් අපගේ සේවාවේ ඇති වූ බාධාවක් සම්බන්ධයෙන් පාරිභෝගිකයෙකු වෙත යැවීමට විධිමත් සිංහල සමාව ඉල්ලීමේ ලිපියක් ලියන්න. අපහසුතාවයට සමාව ඉල්ලා, ගැටලුව නිරාකරණය වූ බව දන්වා, කෙටි දිරිත්ත (compensation) ලබා දෙන බව සේනනකල කරන්න.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d3" onclick="toggleExpand('d3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Sinhala Business Proposal Summary</div><div class="prompt-cat">📄 Summarize</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d4">පහතින් සපයා ඇති ව්‍යාපාර යෝජනාවේ ප්‍රධාන වාසි 3ක් සහ අවදානම් 2ක් ඉස්මතු කරමින්, විධායක නිලධාරීවරයෙකුට කියවීමට සුදුසු සරල සිංහලෙන් සාරාංශයක් ලියන්න. [Paste Your Sinhala Proposal Text Here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d4" onclick="toggleExpand('d4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Sinhala to English Summary</div><div class="prompt-cat">🔤 Translate &amp; Summarize</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d5">පහත සිංහලෙන් ඇති ලිපිය කියවා එහි ඇති වැදගත්ම කරුණු 5 ඉංග්‍රීසි bullet points ආකාරයෙන් සාරාංශ කර දෙන්න. [Paste Sinhala Text/Article Here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d5" onclick="toggleExpand('d5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Singlish to Formal English</div><div class="prompt-cat">🔤 Translate</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d6">Translate the following customer feedback written in Singlish into formal, grammatically correct business English suitable for a product report: 'The app is damn slow when I try to pay la. Fix it quickly, otherwise I will just use the old system. The new feature also sometimes crashes.'</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d6" onclick="toggleExpand('d6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Sinhala Meeting Minutes</div><div class="prompt-cat">📝 Meeting Notes</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d7">පහත සිංහල සාකච්ඡා සටහන් (notes) කියවා, ඒවා ව්‍යාපාරික meeting minutes ආකාරයට format කර දෙන්න. Agenda items, Decisions made, සහ Action points ලෙස section කරන්න. [Paste your Sinhala notes here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d7').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d7" onclick="toggleExpand('d7')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="dialog">
+      <div class="prompt-header"><span class="platform-tag tag-dialog">Dialog AI</span><div><div class="prompt-title-text">Sinhala Product Description</div><div class="prompt-cat">🛒 Marketing</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-d8">ඔබ ශ්‍රී ලාංකික marketing expert කෙනෙකු. [Product Name] සඳහා, Facebook/WhatsApp post සඳහා සිංහලෙන් ආකර්ශනීය product description එකක් ලියන්න. Features 3ක් mention කර, Call to action ද ඇතුළත් කරන්න. Words 100 ක් ඇතුළත තබා ගන්න.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-d8').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-d8" onclick="toggleExpand('d8')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end dialog grid -->
+
+  <!-- ============================== -->
+  <!-- CHATGPT -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="chatgpt">
+    <span class="plat-icon">🤖</span>
+    <div><span class="plat-name" style="color:#10b981;">ChatGPT</span><br/><span style="font-size:.78rem;color:var(--muted);">Best for documents, analysis, creative writing &amp; code! Understands Sinhala too. Visit: chatgpt.com</span></div>
+    <span class="plat-count">14 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-chatgpt">
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Formal Leave Request (English)</div><div class="prompt-cat">📝 Letter Drafting</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c1">Draft a formal annual leave request letter addressed to my Head of Department. Request leave from [Start Date] to [End Date] due to urgent family commitments. Ensure the tone is highly respectful and professional. State that all tasks will be delegated and documented before I leave. Use standard Sri Lankan corporate formalities.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c1" onclick="toggleExpand('c1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Excel Formula Explainer</div><div class="prompt-cat">📊 Microsoft Office</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c2">You are a Microsoft Excel expert. Explain what this formula does in simple English so that a non-technical person can understand it: [paste your formula here]. Then, give me one real-world use case example of when I would use this formula in a Sri Lankan office setting.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c2" onclick="toggleExpand('c2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Meeting Agenda Builder</div><div class="prompt-cat">📅 Productivity</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c3">Create a professional meeting agenda for a [30/60]-minute team meeting about [Topic]. Include: Welcome (2 min), 3-4 agenda items with time allocations, a Q&A section, and closing. Format it neatly so it can be copy-pasted directly into an email.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c3" onclick="toggleExpand('c3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Performance Review Writer</div><div class="prompt-cat">👔 HR &amp; Management</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c4">You are an experienced HR professional. Write a balanced, professional performance review for an employee named [Name] who works as a [Job Title]. Their strengths: [List 2-3 strengths]. Their areas to improve: [List 1-2 areas]. Tone: constructive and encouraging. Length: 200-250 words.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c4" onclick="toggleExpand('c4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Customer Complaint Response</div><div class="prompt-cat">📧 Customer Service</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c5">You are a customer service manager at a Sri Lankan company. Write a professional email response to this customer complaint: "[Paste the complaint here]". Acknowledge the issue, apologize sincerely, explain what action we're taking, and offer a goodwill gesture. Tone: empathetic and professional. Keep it under 150 words.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c5" onclick="toggleExpand('c5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Job Interview Prep</div><div class="prompt-cat">💼 Career</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c6">I have a job interview for the role of [Job Title] at [Company Type, e.g. a Sri Lankan bank]. Give me: 5 likely interview questions, suggested answers for each using the STAR method, and 3 questions I should ask the interviewer to show interest. Keep language professional but natural.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c6" onclick="toggleExpand('c6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Business Proposal Writer</div><div class="prompt-cat">📄 Documents</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c7">Write a professional business proposal for [Your Business/Service Name] targeting [Target Client Type] in Sri Lanka. Include: Executive Summary, Problem we solve, Our Solution, Why choose us (3 key reasons), Pricing overview, and a Call to Action. Use formal English. Length: approximately 400 words.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c7').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c7" onclick="toggleExpand('c7')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Social Media Content Plan</div><div class="prompt-cat">📱 Marketing</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c8">You are a social media marketing expert. Create a 1-week content plan (Monday to Friday) for my [Business Type] business on [Platform: Instagram/Facebook/LinkedIn]. Each day: post topic, caption (under 80 words), 3 hashtags, best time to post. Target audience: [Describe your audience, e.g. young professionals in Colombo].</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c8').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c8" onclick="toggleExpand('c8')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Data Analysis Prompt</div><div class="prompt-cat">📊 Data &amp; Analysis</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c9">I have an Excel spreadsheet with [describe your data, e.g. 'monthly sales data for 12 months with columns: Month, Product, Revenue, Units Sold']. What are 5 important insights I should look for in this data? Also suggest 3 Excel formulas or charts that would best visualize these insights for a management presentation.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c9').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c9" onclick="toggleExpand('c9')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Training Material Creator</div><div class="prompt-cat">🎓 Training &amp; Education</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c10">Create simple training material for new employees on the topic: [Topic, e.g. 'How to handle customer complaints']. Include: Learning objectives (3), Key points explained simply, One real-world example, A short 3-question quiz at the end. Write at a level that someone with no experience can understand easily.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c10').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c10" onclick="toggleExpand('c10')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">ChatGPT Sinhala — Simple Explanation</div><div class="prompt-cat">🌐 Sinhala Support</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c11">Please explain [Topic] in simple Sinhala that a Sri Lankan high school student can understand. Use easy Sinhala words, avoid complicated terms. Give 2 local Sri Lankan examples to help explain. End with 3 key takeaways in Sinhala bullet points.
+
+(ChatGPT Sinhala ෙ respond කරනවා — use this for general topics!)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c11').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c11" onclick="toggleExpand('c11')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Report Executive Summary</div><div class="prompt-cat">📄 Summarize</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c12">Read the following report and write a professional Executive Summary for a senior manager. Keep it under 200 words. Include: What the report is about, Key findings (3 bullet points), Main recommendation. Use formal business language. [Paste your report text here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c12').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c12" onclick="toggleExpand('c12')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Policy Document Writer</div><div class="prompt-cat">📋 HR / Compliance</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c13">Write a professional company policy document for [Policy Name, e.g. 'Remote Work Policy'] for a Sri Lankan company with [Company Size] employees. Include: Purpose, Scope, Rules &amp; Guidelines (numbered list), Employee responsibilities, and a Signature section. Use formal, clear language. Length: 400-500 words.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c13').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c13" onclick="toggleExpand('c13')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="chatgpt">
+      <div class="prompt-header"><span class="platform-tag tag-chatgpt">ChatGPT</span><div><div class="prompt-title-text">Creative Tagline Generator</div><div class="prompt-cat">✍️ Creative Writing</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-c14">You are a creative copywriter. Generate 10 unique, catchy taglines for my [Business Type] business called [Business Name] that targets [Target Audience] in Sri Lanka. Make them short (5-8 words each), memorable, and reflect our brand value of [Your Key Value, e.g. 'quality' or 'speed']. List them numbered.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-c14').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-c14" onclick="toggleExpand('c14')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end chatgpt grid -->
+
+  <!-- ============================== -->
+  <!-- GEMINI — Sinhala responds well! -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="gemini">
+    <span class="plat-icon">✨</span>
+    <div>
+      <span class="plat-name" style="color:#3b82f6;">Google Gemini</span><br/>
+      <span style="font-size:.78rem;color:var(--muted);">🌟 Gemini responds VERY WELL in Sinhala! Great for Google Workspace. Visit: gemini.google.com</span>
+    </div>
+    <span class="plat-count">10 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-gemini">
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Gemini Sinhala — Write Email</div><div class="prompt-cat">📧 Sinhala Email — Gemini excels here!</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g1">ඔබ ශ්‍රී ලාංකික professional ලිවීම් expert කෙනෙකු. [Client/Person Name] ට [Purpose of email] සඳහා සිංහල formal email එකක් ලියන්න. Tone: ගෞරවනීය සහ මිත්‍රශීලී. Words 150 ක් ඇතුළත. Subject line ද ඇතුළත් කරන්න.
+
+(Gemini සිංහලෙන් ඉතා හොඳ replies දෙනවා! 🌟)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g1" onclick="toggleExpand('g1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Gemini Sinhala — Explain Topic</div><div class="prompt-cat">📚 Education in Sinhala</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g2">[Topic] ගැන සරල සිංහලෙන් පැහැදිලි කරන්න. O/L හෝ A/L ශිෂ්‍යයෙකුට තේරෙන සරල භාෂාවෙන් ලියන්න. ශ්‍රී ලාංකික examples 2ක් ද ඇතුළත් කරන්න. Key points bullet points ලෙස end කරන්න.
+
+(Gemini සිංහල explanations ඉතා හොඳින් දෙනවා!)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g2" onclick="toggleExpand('g2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Google Slides Outline Creator</div><div class="prompt-cat">📊 Presentations</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g3">Create a Google Slides presentation outline for a [10/15]-minute presentation about [Topic] for [Audience, e.g. management team]. Include: Slide number, Slide title, 3-4 bullet points per slide, and speaker notes suggestions. Total slides: 8-10. Make it professional and engaging.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g3" onclick="toggleExpand('g3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Gmail Draft Polish</div><div class="prompt-cat">📧 Gmail Integration</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g4">You are a professional email editor. Improve the following draft email to make it more professional, clear, and appropriately formal for a business setting. Fix any grammar issues, improve the flow, and ensure the tone is respectful. Keep the key message intact but make it sound more polished. Draft: [Paste your draft here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g4" onclick="toggleExpand('g4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Google Docs Report Structure</div><div class="prompt-cat">📄 Google Docs</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g5">Create a professional report structure for a [Report Type, e.g. 'Monthly Sales Report'] for [Company/Department Name]. Include: Cover page info, Table of Contents sections, Executive Summary outline, Main body sections with subheadings, Conclusion structure, and Appendix notes. Format it ready to use in Google Docs.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g5" onclick="toggleExpand('g5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Gemini Sinhala — Story for Kids</div><div class="prompt-cat">📖 Creative — Sinhala</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g6">ළමයින් 8-10 වයස් පරාසයේ සිටින අයට සුදුසු, ශ්‍රී ලාංකික setting එකකින් සිංහල කෙටි කතාවක් ලියන්න. Topic: [e.g. හොර කිරීම් නැත, ප්‍රීතිය, nature]. Length: words 200 ක් ඇතුළත. Simple words use කරන්න. Moral lesson ද ඇතුළත් කරන්න.
+
+(Gemini සිංහල creative writing ඉතා හොඳින් කරනවා!)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g6" onclick="toggleExpand('g6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">YouTube Script Writer</div><div class="prompt-cat">🎬 Video Content</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g7">Write a YouTube video script for a [3/5/10]-minute video about [Topic]. Include: Hook (first 15 seconds to grab attention), Introduction, Main content (3 sections), Call-to-action (like and subscribe), Outro. Target audience: [Describe audience]. Tone: [engaging/educational/entertaining]. Keep language simple and conversational.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g7').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g7" onclick="toggleExpand('g7')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Google Sheets Formula Helper</div><div class="prompt-cat">📊 Google Sheets</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g8">I am working in Google Sheets and I need to [describe what you want to do, e.g. 'find the total sales for each salesperson' or 'highlight cells that are over budget']. Tell me: which formula to use, exactly what to type (with an example using columns A, B, C), and a simple explanation of why it works. Make it beginner-friendly!</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g8').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g8" onclick="toggleExpand('g8')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Gemini Sinhala — News Summary</div><div class="prompt-cat">📰 Current Affairs — Sinhala</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g9">පහත ඉංග්‍රීසි news article එක සිංහලෙන් summarize කරන්න. Main points 5ක් bullet points ලෙස ලියන්න. සරල සිංහල භාෂාවෙන් ලියන්න — technical jargon avoid කරන්න. End: ශ්‍රී ලාංකිකයන්ට මෙය relevant වන්නේ ඇයිද? [Paste English article here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g9').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g9" onclick="toggleExpand('g9')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="gemini">
+      <div class="prompt-header"><span class="platform-tag tag-gemini">Gemini</span><div><div class="prompt-title-text">Research Summary (with sources)</div><div class="prompt-cat">🔬 Research</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-g10">Research and summarize the topic: [Your Research Topic]. Provide: A clear 3-paragraph overview, 5 key facts with source mentions, Current trends (as of 2024-2025), and How this is relevant to Sri Lanka. Format: clean sections with headers. Mention if any information might need verification.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-g10').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-g10" onclick="toggleExpand('g10')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end gemini grid -->
+
+  <!-- ============================== -->
+  <!-- GROK — Humanized, real-time -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="grok">
+    <span class="plat-icon">⚡</span>
+    <div>
+      <span class="plat-name" style="color:#374151;">Grok (xAI)</span><br/>
+      <span style="font-size:.78rem;color:var(--muted);">🎯 Grok replies in a MORE HUMAN, casual style! Great for social media &amp; real-time content. Visit: grok.com</span>
+    </div>
+    <span class="plat-count">8 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-grok">
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Humanized Twitter/X Thread</div><div class="prompt-cat">🐦 Social Media — Human Style</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr1">Write a Twitter/X thread (8-10 tweets) about [Topic] that sounds like it was written by a real human expert — NOT an AI. Make it conversational, include personal-sounding opinions, use casual language, add some personality and humor where natural. Each tweet max 280 characters. Start with a strong hook tweet. End with a call to follow for more.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr1" onclick="toggleExpand('gr1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Current News Analysis</div><div class="prompt-cat">📰 Real-time News</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr2">What are the latest developments in [Topic/Industry] this week? Give me a quick, honest summary of what's happening, what it means for regular people, and your take on what might happen next. Keep it under 300 words. Be direct — no corporate speak, just real talk.
+
+(Grok has real-time internet access for current news!)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr2" onclick="toggleExpand('gr2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Casual LinkedIn Post</div><div class="prompt-cat">💼 LinkedIn — Human Voice</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr3">Write a LinkedIn post about [Your Topic/Achievement/Lesson learned] that sounds genuinely human — not like a corporate announcement. Share it like you'd tell a friend. Include: a relatable opening, the key lesson/story, and a genuine question at the end to start conversation. 150-200 words. First person, authentic voice.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr3" onclick="toggleExpand('gr3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Debate Both Sides</div><div class="prompt-cat">🗣️ Critical Thinking</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr4">Present both sides of this debate topic fairly and honestly: [Your debate topic, e.g. 'Should companies allow remote work forever?']. For EACH side: give 3 strong arguments. Be real about it — acknowledge weaknesses in both sides. End with your honest take on which side has the stronger case. Keep it conversational, not textbook-style.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr4" onclick="toggleExpand('gr4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Viral Instagram Caption</div><div class="prompt-cat">📸 Instagram Content</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr5">Write 5 different Instagram captions for a photo of [describe your photo/post topic]. Make them feel authentic and human — like a real person wrote them, not a marketing team. Mix styles: one funny, one motivational, one storytelling, one question-based, one simple and punchy. Include relevant emojis and 4-5 hashtags for each.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr5" onclick="toggleExpand('gr5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Tech Explainer (Simple)</div><div class="prompt-cat">💻 Technology</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr6">Explain [Tech Topic, e.g. 'How AI works', 'What is blockchain', 'How does 5G work'] like you're talking to a smart 15-year-old. No jargon, no textbook language. Use a simple analogy from everyday life. Keep it under 200 words. Make it interesting — not boring!</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr6" onclick="toggleExpand('gr6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Grok Sinhala — Casual Reply</div><div class="prompt-cat">🌐 Sinhala Casual</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr7">සිංහලෙන් reply කරන්න. [Your Question/Topic] ගැන casual, friendly ලෙස explain කරන්න — textbook style එකේ නෙමෙයි, friend කෙනෙකු කතා කරන ලෙස. Simple Sinhala words use කරන්න. Sri Lankan context use කරන්න examples දීමේදී.
+
+(Grok humanized style ෙ Sinhala reply කරනවා!)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr7').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr7" onclick="toggleExpand('gr7')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="grok">
+      <div class="prompt-header"><span class="platform-tag tag-grok">Grok</span><div><div class="prompt-title-text">Cold Email That Actually Works</div><div class="prompt-cat">📧 Sales Outreach</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-gr8">Write a cold outreach email for [Your Purpose, e.g. 'pitching my freelance web design services to small businesses']. Make it sound like a real human wrote it — NOT a template. Keep it short (under 120 words), start with something specific about them (use [Their Name] and [Something specific about them/their company]), make a clear value offer, and end with ONE simple call to action. No fluff.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-gr8').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-gr8" onclick="toggleExpand('gr8')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end grok grid -->
+
+  <!-- ============================== -->
+  <!-- CLAUDE AI — Deep analysis -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="claude">
+    <span class="plat-icon">🧠</span>
+    <div>
+      <span class="plat-name" style="color:#d97706;">Claude AI (Anthropic)</span><br/>
+      <span style="font-size:.78rem;color:var(--muted);">Best for: long document analysis, deep thinking, research &amp; nuanced writing. Reads up to 200,000 words! Visit: claude.ai</span>
+    </div>
+    <span class="plat-count">8 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-claude">
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Long Document Analyzer</div><div class="prompt-cat">📄 Document Analysis</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl1">Please read the following document carefully and provide: 1) A concise summary (150 words max), 2) The 5 most important points, 3) Any inconsistencies, gaps, or concerns you notice, 4) Your recommendation on what action to take based on this document. Be thorough and honest in your analysis. [Paste your document here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl1" onclick="toggleExpand('cl1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Contract Review Checklist</div><div class="prompt-cat">⚖️ Legal Documents</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl2">You are a careful document reviewer (not a lawyer — for general guidance only). Review the following contract/agreement and identify: 1) Key obligations for each party, 2) Important deadlines or dates, 3) Any clauses that seem unusual or one-sided, 4) What's missing that should typically be in this type of document, 5) Questions I should ask a lawyer about. [Paste contract here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl2" onclick="toggleExpand('cl2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Research Paper Explainer</div><div class="prompt-cat">🔬 Academic Research</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl3">Read this research paper/article and explain it in plain language that a non-expert can understand. Cover: What question the researchers were trying to answer, How they did their study, What they found, Why it matters in real life, Limitations of the study. Use simple words. No jargon. [Paste the research paper/article here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl3" onclick="toggleExpand('cl3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Deep Strategic Analysis</div><div class="prompt-cat">🎯 Business Strategy</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl4">Perform a thorough analysis of this business situation: [Describe the situation in detail]. I want you to think carefully about this, consider multiple perspectives, identify what I might be missing, and give me a well-reasoned recommendation. Don't just agree with me — challenge my assumptions if you see issues. Be honest and thoughtful.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl4" onclick="toggleExpand('cl4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Claude Sinhala — Formal Letter</div><div class="prompt-cat">🌐 Sinhala Document</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl5">සිංහලෙන් reply කරන්න. [Recipient] ට [Purpose] සඳහා formal Sinhala ලිපියක් ලියන්න. Tone: official, respectful. Format: proper letter format with date, address, subject, body, closing. Words 200-300 ඇතුළත. ශ්‍රී ලාංකික formal letter conventions follow කරන්න.
+
+(Claude deep, accurate Sinhala formal writing ෙ help කරනවා!)</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl5" onclick="toggleExpand('cl5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Essay Writer &amp; Critic</div><div class="prompt-cat">✍️ Academic Writing</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl6">Write a well-structured essay on: [Essay Topic]. Length: [500/800/1000] words. Include: Introduction with clear thesis, 3 main body paragraphs (each with evidence and analysis), Conclusion. After writing the essay, also provide: 2-3 ways the essay could be strengthened, and the overall quality score out of 10 with justification.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl6" onclick="toggleExpand('cl6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Multi-Document Comparison</div><div class="prompt-cat">📊 Compare Documents</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl7">I am going to give you two documents to compare. Please read both carefully and provide: Key similarities, Key differences, Which document is more comprehensive and why, Any contradictions between them, Your recommendation on which to follow or how to reconcile them. Document 1: [Paste here] --- Document 2: [Paste here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl7').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl7" onclick="toggleExpand('cl7')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="claude">
+      <div class="prompt-header"><span class="platform-tag tag-claude">Claude AI</span><div><div class="prompt-title-text">Proofreader &amp; Editor</div><div class="prompt-cat">✏️ Writing &amp; Editing</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cl8">Please proofread and edit the following text. Fix: grammar errors, spelling mistakes, awkward phrasing, punctuation issues, and unclear sentences. Also suggest: 2 ways to make the opening stronger, 1 way to improve the conclusion. Show the corrected version first, then list the main changes you made. [Paste your text here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cl8').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cl8" onclick="toggleExpand('cl8')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end claude grid -->
+
+  <!-- ============================== -->
+  <!-- PERPLEXITY — Research with links -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="perplexity">
+    <span class="plat-icon">🔍</span>
+    <div><span class="plat-name" style="color:#14b8a6;">Perplexity AI</span><br/><span style="font-size:.78rem;color:var(--muted);">Best for research with real source links! Every answer cites real websites. Visit: perplexity.ai</span></div>
+    <span class="plat-count">6 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-perplexity">
+
+    <div class="prompt-card fade-in" data-platform="perplexity">
+      <div class="prompt-header"><span class="platform-tag tag-perplexity">Perplexity</span><div><div class="prompt-title-text">Market Research Report</div><div class="prompt-cat">📊 Business Research</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-p1">Research the [Industry/Market] in Sri Lanka for 2024-2025. Find: Current market size, Key players/competitors, Latest trends, Growth opportunities, Major challenges. Provide real sources for each point. Format as a structured report with clear sections. I need this for a business presentation.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-p1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-p1" onclick="toggleExpand('p1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="perplexity">
+      <div class="prompt-header"><span class="platform-tag tag-perplexity">Perplexity</span><div><div class="prompt-title-text">Fact Check This Claim</div><div class="prompt-cat">✅ Fact Checking</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-p2">Fact-check this claim: "[Paste the claim or statement you want to verify]". Find reliable sources that either confirm or deny this. Tell me: Is it true, false, or partially true? What do multiple credible sources say? Are there any nuances or context I should know? Provide direct links to your sources.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-p2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-p2" onclick="toggleExpand('p2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="perplexity">
+      <div class="prompt-header"><span class="platform-tag tag-perplexity">Perplexity</span><div><div class="prompt-title-text">Competitor Analysis</div><div class="prompt-cat">🏢 Competitive Research</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-p3">Research [Competitor Company Name] and provide: Their main products/services and pricing, Recent news or changes in strategy, Customer reviews and common complaints, Their social media presence and marketing approach, How they compare to [Your Company/Industry]. Include sources. This is for internal competitive analysis.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-p3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-p3" onclick="toggleExpand('p3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="perplexity">
+      <div class="prompt-header"><span class="platform-tag tag-perplexity">Perplexity</span><div><div class="prompt-title-text">Latest Industry News</div><div class="prompt-cat">📰 Current Events</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-p4">What are the most important news stories and developments in [Industry/Field] from the past 2 weeks? Summarize each story in 2-3 sentences and explain why it matters. Include the source and publication date for each story. Focus on news relevant to Sri Lanka or Asia where possible.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-p4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-p4" onclick="toggleExpand('p4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="perplexity">
+      <div class="prompt-header"><span class="platform-tag tag-perplexity">Perplexity</span><div><div class="prompt-title-text">Product/Service Comparison</div><div class="prompt-cat">🛒 Buying Decision</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-p5">Compare [Product/Service A] vs [Product/Service B] vs [Product/Service C]. For each: Price in Sri Lankan Rupees (or USD), Key features, Pros and cons based on user reviews, Who it's best suited for. Create a comparison table. Provide sources for pricing and reviews. My budget is [Budget] and I need it for [Purpose].</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-p5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-p5" onclick="toggleExpand('p5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="perplexity">
+      <div class="prompt-header"><span class="platform-tag tag-perplexity">Perplexity</span><div><div class="prompt-title-text">Sri Lanka Regulation Finder</div><div class="prompt-cat">⚖️ Legal &amp; Compliance</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-p6">Research the current regulations, laws, or requirements in Sri Lanka for: [Your Topic, e.g. 'starting a food business', 'importing electronics', 'hiring foreign employees']. Find: Official rules from government sources, Key permits or licenses needed, Recent changes to the law (2023-2025), Official websites to apply. Provide links to official Sri Lankan government sources.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-p6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-p6" onclick="toggleExpand('p6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end perplexity grid -->
+
+  <!-- ============================== -->
+  <!-- COPILOT — Microsoft Office -->
+  <!-- ============================== -->
+  <div class="plat-header fade-in" data-platform="copilot">
+    <span class="plat-icon">🔷</span>
+    <div><span class="plat-name" style="color:#1d4ed8;">Microsoft Copilot</span><br/><span style="font-size:.78rem;color:var(--muted);">Built into Word, Excel, PowerPoint &amp; Outlook! Perfect for Microsoft Office users. Visit: copilot.microsoft.com</span></div>
+    <span class="plat-count">6 prompts</span>
+  </div>
+  <div class="grid-auto" id="grid-copilot">
+
+    <div class="prompt-card fade-in" data-platform="copilot">
+      <div class="prompt-header"><span class="platform-tag tag-copilot">Copilot</span><div><div class="prompt-title-text">PowerPoint Presentation Builder</div><div class="prompt-cat">📊 PowerPoint</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cp1">Create a professional PowerPoint presentation about [Topic] for [Audience, e.g. senior management]. Include: Title slide, Agenda slide, 6-8 content slides with key points (3 bullets each), Data visualization suggestions, Summary/Conclusion slide, Q&A slide. Each slide: title + 3-4 concise bullet points. Professional, corporate style.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cp1').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cp1" onclick="toggleExpand('cp1')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="copilot">
+      <div class="prompt-header"><span class="platform-tag tag-copilot">Copilot</span><div><div class="prompt-title-text">Word Document Template</div><div class="prompt-cat">📝 Microsoft Word</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cp2">Create a professional Word document template for a [Document Type, e.g. 'Project Status Report', 'Meeting Minutes', 'Employee Onboarding Checklist']. Include: All necessary sections with headers, Placeholder text showing what goes in each section, A professional table where appropriate, Instructions in brackets showing what to fill in. Make it ready to use immediately.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cp2').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cp2" onclick="toggleExpand('cp2')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="copilot">
+      <div class="prompt-header"><span class="platform-tag tag-copilot">Copilot</span><div><div class="prompt-title-text">Excel Dashboard Formula Pack</div><div class="prompt-cat">📊 Microsoft Excel</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cp3">I'm building an Excel dashboard for [Purpose, e.g. 'tracking monthly team sales']. My data has columns: [List your column names]. Give me: 5 useful formulas with exact syntax for my data, Instructions for creating one chart that shows the most important metric, How to add conditional formatting to highlight good vs bad performance, Step-by-step — I'm a beginner.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cp3').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cp3" onclick="toggleExpand('cp3')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="copilot">
+      <div class="prompt-header"><span class="platform-tag tag-copilot">Copilot</span><div><div class="prompt-title-text">Outlook Email Batch Writer</div><div class="prompt-cat">📧 Microsoft Outlook</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cp4">Write 3 different versions of an email for [Purpose, e.g. 'following up on unpaid invoice']: Version 1: Gentle reminder (first contact), Version 2: Firm but professional (second contact after no reply), Version 3: Final notice (third contact). Each: under 100 words, professional tone, clear subject line. I will use these as Outlook templates.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cp4').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cp4" onclick="toggleExpand('cp4')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="copilot">
+      <div class="prompt-header"><span class="platform-tag tag-copilot">Copilot</span><div><div class="prompt-title-text">Teams Meeting Summary</div><div class="prompt-cat">💬 Microsoft Teams</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cp5">Convert the following meeting notes into a professional Microsoft Teams meeting summary. Format: Date &amp; Attendees, Agenda Items Discussed, Key Decisions Made (numbered), Action Items (person responsible + deadline), Next Steps, Next Meeting Date. Keep it concise — one page max. [Paste your rough meeting notes here]</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cp5').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cp5" onclick="toggleExpand('cp5')">▼ Show more</button></div>
+      </div>
+    </div>
+
+    <div class="prompt-card fade-in" data-platform="copilot">
+      <div class="prompt-header"><span class="platform-tag tag-copilot">Copilot</span><div><div class="prompt-title-text">Budget Tracker Template</div><div class="prompt-cat">💰 Finance &amp; Excel</div></div></div>
+      <div class="prompt-body">
+        <div class="prompt-box" id="pb-cp6">Design an Excel budget tracker for [Personal/Department/Project] budget. Include columns for: Category, Budgeted Amount (LKR), Actual Amount Spent, Variance (over/under budget), Notes. Add: A summary section showing total budgeted vs total spent, Formulas for automatic variance calculation, Conditional formatting: red = over budget, green = under budget. Make it simple enough for a non-finance person to use.</div>
+        <div class="prompt-actions"><button class="copy-btn" onclick="copyPrompt(document.getElementById('pb-cp6').textContent,this)">📋 Copy Prompt</button><button class="expand-btn" id="eb-cp6" onclick="toggleExpand('cp6')">▼ Show more</button></div>
+      </div>
+    </div>
+
+  </div><!-- end copilot grid -->
+
+</div><!-- end container -->
+</section>
+
+<section class="section alt">
+<div class="container" style="text-align:center;">
+  <span class="sec-tag">⚡ Build Your Own</span>
+  <h2 class="sec-h">Want to Create Your <span>Own Prompts?</span></h2>
+  <p class="sec-sub" style="margin:0 auto 24px;">Use the Prompt Builder to auto-generate a perfect custom prompt in seconds!</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="builder.html" class="btn btn-primary">⚡ Open Prompt Builder →</a>
+    <a href="guide.html" class="btn btn-outline">📖 Learn the Framework</a>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><a href="guide.html">📖 Framework</a><a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a><a href="practice.html">✏️ Practice</a><a href="builder.html">⚡ Builder</a><a href="others.html">🌟 More</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | NextGenIT Course 2025</p>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prompting Framework | NextGenIT AI Guide</title>
+<link rel="stylesheet" href="shared.css"/>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'si,ta,en',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+<style>
+.hero{background:linear-gradient(135deg,#eef2ff,#f5f3ff);padding-bottom:60px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#0d0d1f,#13132b);}
+.fw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+@media(max-width:800px){.fw-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:500px){.fw-grid{grid-template-columns:1fr 1fr;}}
+.iter-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.iter-grid{grid-template-columns:1fr;}}
+.shot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:640px){.shot-grid{grid-template-columns:1fr;}}
+.shot-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;margin:0 auto 14px;}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html" class="active">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ AI Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap"><div id="google_translate_element"></div></div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero page-content">
+  <div class="container" style="text-align:center;">
+    <span class="hero-emoji">📖</span>
+    <h1>The <span>Prompting Framework</span></h1>
+    <p>Learn the 5 magic ingredients that turn average prompts into amazing ones. Simple enough for a 10-year-old to understand — and powerful enough for professionals!</p>
+  </div>
+</div>
+
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">🤔 Step 1 — Understand the Basics</span>
+  <h2 class="sec-h">What Exactly is a <span>Prompt</span>?</h2>
+  <p class="sec-sub">A prompt is just the message you type to an AI. Like texting a smart friend — but this friend knows EVERYTHING and can do almost ANYTHING... if you ask correctly!</p>
+  <div class="steps-list">
+    <div class="step-item fade-in"><div class="step-num">1</div><div class="step-content"><h4>You Type Something (the Prompt)</h4><p>Example: "Write a birthday message for my 10-year-old sister who loves cats 🐱"</p></div></div>
+    <div class="step-item fade-in"><div class="step-num">2</div><div class="step-content"><h4>AI Reads Your Prompt</h4><p>The AI looks for clues — who is it for? what tone? how long? what topic? The more clues you give, the better!</p></div></div>
+    <div class="step-item fade-in"><div class="step-num">3</div><div class="step-content"><h4>AI Gives You an Answer</h4><p>More details you gave = better the answer! Missing details = boring, generic answer 😐</p></div></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <span class="sec-tag">🎯 The Magic Formula</span>
+  <h2 class="sec-h">The <span>T.C.R.E.I</span> Framework</h2>
+  <p class="sec-sub">5 magic ingredients that make every prompt powerful. You don't need ALL 5 every time — but using more = much better results!</p>
+  <div class="fw-grid">
+    <div class="fw-card fade-in" style="border-color:#4f46e5;">
+      <span class="fw-letter" style="color:#4f46e5;">T</span>
+      <div class="fw-word">Task</div>
+      <div style="font-size:.73rem;color:#4f46e5;margin-bottom:8px;">කාර්යය / பணி</div>
+      <div class="fw-desc">Tell AI <strong>what to do</strong>. Use action words like "Write", "List", "Explain", "Create", "Translate".</div>
+      <div class="fw-example">✅ "Write 5 ideas..."<br/>✅ "Explain in simple words..."<br/>❌ "I need something..."</div>
+    </div>
+    <div class="fw-card fade-in" style="border-color:#7c3aed;">
+      <span class="fw-letter" style="color:#7c3aed;">C</span>
+      <div class="fw-word">Context</div>
+      <div style="font-size:.73rem;color:#7c3aed;margin-bottom:8px;">සන්දර්භය / சூழல்</div>
+      <div class="fw-desc">Give <strong>background info</strong> — who is it for? what is the situation? what rules apply?</div>
+      <div class="fw-example">✅ "...for my 10-year-old who loves cats"<br/>✅ "budget is Rs.5,000"<br/>❌ (no context = generic!)</div>
+    </div>
+    <div class="fw-card fade-in" style="border-color:#f59e0b;">
+      <span class="fw-letter" style="color:#f59e0b;">R</span>
+      <div class="fw-word">References</div>
+      <div style="font-size:.73rem;color:#f59e0b;margin-bottom:8px;">යොමු / குறிப்புகள்</div>
+      <div class="fw-desc">Show AI <strong>examples</strong> of what you want. Like showing a chef a photo of the dish you want!</div>
+      <div class="fw-example">✅ "Write like this example: [example]"<br/>✅ "Use the same tone as..."</div>
+    </div>
+    <div class="fw-card fade-in" style="border-color:#10b981;">
+      <span class="fw-letter" style="color:#10b981;">E</span>
+      <div class="fw-word">Evaluate</div>
+      <div style="font-size:.73rem;color:#10b981;margin-bottom:8px;">ඇගයීම / மதிப்பீடு</div>
+      <div class="fw-desc"><strong>Check the answer</strong> you got. Is it correct? Is anything missing? Is the tone right?</div>
+      <div class="fw-example">🔍 Is it accurate?<br/>🔍 Is the format right?<br/>🔍 Would a real person use this?</div>
+    </div>
+    <div class="fw-card fade-in" style="border-color:#ef4444;">
+      <span class="fw-letter" style="color:#ef4444;">I</span>
+      <div class="fw-word">Iterate</div>
+      <div style="font-size:.73rem;color:#ef4444;margin-bottom:8px;">නැවත ලිවීම / மீண்டும்</div>
+      <div class="fw-desc"><strong>Improve your prompt</strong> based on what you got. Best prompts get better over time!</div>
+      <div class="fw-example">✏️ "Make it shorter..."<br/>✏️ "Add more detail about..."<br/>✏️ "Change the tone to..."</div>
+    </div>
+  </div>
+  <div class="tip-box fade-in" style="margin-top:28px;">
+    <span class="tip-icon">🎓</span>
+    <p><strong>Real Example:</strong> "You are an expert chef (Persona). Write a 3-ingredient chocolate cake recipe (Task) for my 8-year-old nephew who is learning to bake (Context). Use simple words and number each step (Format). Keep it under 200 words (Constraint)." — This prompt will get you an AMAZING answer! 🍰</p>
+  </div>
+</div>
+</section>
+
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">🎭 Two Secret Weapons</span>
+  <h2 class="sec-h">Persona &amp; <span>Format</span></h2>
+  <p class="sec-sub">Two extra tricks that make a HUGE difference in your answers!</p>
+  <div class="grid-2">
+    <div class="card fade-in">
+      <div style="font-size:2rem;margin-bottom:12px;">🎭</div>
+      <h3 style="font-weight:900;margin-bottom:8px;">Persona — "You are a..."</h3>
+      <p style="font-size:.86rem;color:var(--muted);margin-bottom:14px;">Tell AI WHO to be! A doctor answers differently than a teacher — even about the same topic!</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="fw-example">"<strong>You are a 5-star hotel manager.</strong> Write a complaint reply..." → Professional, polite tone</div>
+        <div class="fw-example">"<strong>You are a friendly teacher.</strong> Explain photosynthesis..." → Simple, fun tone</div>
+        <div class="fw-example">"<strong>You are a Sri Lankan tax consultant.</strong> Explain income tax..." → Local, relevant!</div>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <div style="font-size:2rem;margin-bottom:12px;">📋</div>
+      <h3 style="font-weight:900;margin-bottom:8px;">Format — "Show it as a..."</h3>
+      <p style="font-size:.86rem;color:var(--muted);margin-bottom:14px;">Tell AI HOW to present the answer! This saves you tons of editing time.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="fw-example">"...in a <strong>numbered list</strong>" → 1. Step one  2. Step two...</div>
+        <div class="fw-example">"...as a <strong>comparison table</strong>" → Side-by-side comparison!</div>
+        <div class="fw-example">"...in <strong>bullet points, under 100 words</strong>" → Short and organized!</div>
+        <div class="fw-example">"...as a <strong>formal email</strong>" → Correct email structure!</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <span class="sec-tag">👀 See the Difference</span>
+  <h2 class="sec-h">Good Prompts vs <span>Bad Prompts</span></h2>
+  <p class="sec-sub">Compare these side by side and spot what makes the good ones WORK!</p>
+  <div class="good-bad-grid fade-in">
+    <div class="gb-card gb-bad"><div class="gb-head">❌ Too Vague</div><div class="gb-body"><div class="gb-prompt">"Give me ideas for a gift."</div><div class="gb-why">😕 Who is it for? Budget? What do they like? AI has NO idea — so it gives boring, generic ideas.</div></div></div>
+    <div class="gb-card gb-good"><div class="gb-head">✅ Much Better!</div><div class="gb-body"><div class="gb-prompt">"Give me <span class="highlight">5 birthday gift ideas</span> for a <span class="highlight">29-year-old who loves skiing</span>. My <span class="highlight">budget is Rs. 5,000</span>. List as <span class="highlight">bullet points</span> with price estimate."</div><div class="gb-why">✨ Number ✅ Who ✅ Budget ✅ Format ✅ = Perfect answer!</div></div></div>
+  </div>
+  <div class="good-bad-grid fade-in">
+    <div class="gb-card gb-bad"><div class="gb-head">❌ Sinhala - Too Short</div><div class="gb-body"><div class="gb-prompt">"ලිපියක් ලියන්න."</div><div class="gb-why">😕 AI doesn't know: Who? To whom? What topic? How long? Total failure!</div></div></div>
+    <div class="gb-card gb-good"><div class="gb-head">✅ Sinhala - Full Prompt</div><div class="gb-body"><div class="gb-prompt">"<span class="highlight">ඔබ professional ව්‍යාපාරික ලේඛකයෙකි.</span> [Company] ට <span class="highlight">සිංහල ව්‍යාපාරික ලිපියක්</span> ලියන්න. Tone: <span class="highlight">ගෞරවනීය</span>. Length: <span class="highlight">200 words ඇතුළත</span>."</div><div class="gb-why">✨ Persona ✅ Language ✅ Tone ✅ Length ✅ = Perfect Sinhala letter!</div></div></div>
+  </div>
+</div>
+</section>
+
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">📸 Reference Techniques</span>
+  <h2 class="sec-h">Shot Types — <span>How Many Examples?</span></h2>
+  <p class="sec-sub">Including examples in your prompt is like showing AI a sample of what you want. More examples = more consistent results!</p>
+  <div class="shot-grid">
+    <div class="card fade-in" style="text-align:center;">
+      <div class="shot-num" style="background:rgba(239,68,68,.1);color:var(--red);">0</div>
+      <h3 style="font-weight:900;margin-bottom:8px;">Zero-Shot</h3>
+      <p style="font-size:.84rem;color:var(--muted);margin-bottom:12px;">No examples. AI uses its own knowledge. Works for simple, clear tasks.</p>
+      <div class="fw-example">"Translate to Sinhala: 'The meeting starts at 2PM'"</div>
+      <div style="margin-top:10px;font-size:.76rem;color:var(--muted);">🟡 Best for: simple tasks</div>
+    </div>
+    <div class="card fade-in" style="text-align:center;">
+      <div class="shot-num" style="background:rgba(79,70,229,.1);color:var(--accent);">1</div>
+      <h3 style="font-weight:900;margin-bottom:8px;">Single-Shot</h3>
+      <p style="font-size:.84rem;color:var(--muted);margin-bottom:12px;">Give ONE example. AI learns the style and tone from it.</p>
+      <div class="fw-example">"Example: 'Bold taste every day.' Now write one for our new headphones."</div>
+      <div style="margin-top:10px;font-size:.76rem;color:var(--muted);">🟢 Best for: style matching</div>
+    </div>
+    <div class="card fade-in" style="text-align:center;">
+      <div class="shot-num" style="background:rgba(16,185,129,.1);color:var(--green);">3+</div>
+      <h3 style="font-weight:900;margin-bottom:8px;">Few-Shot</h3>
+      <p style="font-size:.84rem;color:var(--muted);margin-bottom:12px;">Give 3+ examples. AI spots the pattern and produces highly consistent results!</p>
+      <div class="fw-example">"Here are 3 examples: [1][2][3]. Now write 5 more in the same style."</div>
+      <div style="margin-top:10px;font-size:.76rem;color:var(--muted);">🟢 Best for: consistent brand content</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <span class="sec-tag">🔄 Iterate — Fix Bad Answers</span>
+  <h2 class="sec-h">AI Gave a <span>Bad Answer</span>? Try These!</h2>
+  <p class="sec-sub">Don't give up! Even experts fix and improve their prompts. Here are 4 proven ways to get a better answer:</p>
+  <div class="iter-grid">
+    <div class="card fade-in" style="border-left:4px solid var(--accent);"><div style="font-size:1.8rem;margin-bottom:8px;">🔍</div><h4 style="font-size:.95rem;font-weight:900;margin-bottom:6px;">1. Add a Missing Ingredient</h4><p style="font-size:.84rem;color:var(--muted);">Check T.C.R.E.I. Did you forget audience? Format? Length? Add the missing piece!</p><div class="fw-example" style="margin-top:10px;">"Make it shorter" / "Add formal tone" / "Include a table"</div></div>
+    <div class="card fade-in" style="border-left:4px solid var(--accent2);"><div style="font-size:1.8rem;margin-bottom:8px;">✂️</div><h4 style="font-size:.95rem;font-weight:900;margin-bottom:6px;">2. Break Into Small Steps</h4><p style="font-size:.84rem;color:var(--muted);">Split your big request into 2-3 smaller, clearer steps!</p><div class="fw-example" style="margin-top:10px;">Step 1: "List 3 main ideas"<br/>Step 2: "Write about idea #1"</div></div>
+    <div class="card fade-in" style="border-left:4px solid var(--gold);"><div style="font-size:1.8rem;margin-bottom:8px;">🔁</div><h4 style="font-size:.95rem;font-weight:900;margin-bottom:6px;">3. Say It Differently</h4><p style="font-size:.84rem;color:var(--muted);">Try different words for the same request. Small changes make big differences!</p><div class="fw-example" style="margin-top:10px;">"Write a marketing plan" → "Tell a story about how a customer's life improved..."</div></div>
+    <div class="card fade-in" style="border-left:4px solid var(--green);"><div style="font-size:1.8rem;margin-bottom:8px;">🎯</div><h4 style="font-size:.95rem;font-weight:900;margin-bottom:6px;">4. Add Constraints</h4><p style="font-size:.84rem;color:var(--muted);">Limit the answer! Saying "under 100 words" or "simple language" actually makes answers BETTER!</p><div class="fw-example" style="margin-top:10px;">"Under 150 words" / "Explain like I'm 10" / "In Sinhala"</div></div>
+  </div>
+</div>
+</section>
+
+<section class="section alt">
+<div class="container" style="text-align:center;">
+  <span class="sec-tag">🚀 Ready for More?</span>
+  <h2 class="sec-h">Now Try Real <span>Prompts!</span></h2>
+  <p class="sec-sub" style="margin:0 auto 28px;">You've learned the framework! Now go copy some ready-to-use prompts and try them yourself.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="prompts.html" class="btn btn-primary">💬 Browse All Prompts →</a>
+    <a href="practice.html" class="btn btn-outline">✏️ Test Yourself</a>
+    <a href="builder.html" class="btn btn-outline">⚡ Use the Builder</a>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><a href="guide.html">📖 Framework</a><a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a><a href="practice.html">✏️ Practice</a><a href="builder.html">⚡ Builder</a><a href="others.html">🌟 More</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | NextGenIT Course 2025</p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
