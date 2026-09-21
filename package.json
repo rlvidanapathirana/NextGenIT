@@ -1,0 +1,33 @@
+{
+  "name": "nextgenit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shared.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlvidanapathirana/NextGenIT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rlvidanapathirana/NextGenIT/issues"
+  },
+  "homepage": "https://github.com/rlvidanapathirana/NextGenIT#readme",
+  "dependencies": {
+    "@paxsenix/ai": "^0.1.5",
+    "@vitalets/google-translate-api": "^9.2.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "g4f": "^1.4.6",
+    "google-translate-api-x": "^10.7.3",
+    "gpt4free-client": "^2.0.7",
+    "gpt4js": "^1.7.8"
+  }
+}

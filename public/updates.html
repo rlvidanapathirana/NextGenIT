@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Updates — NextGenIT Hub</title>
+    <meta name="description" content="Latest AI updates, tools, news and resources from NextGenIT AI Hub.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f0f4ff;
+            --bg2: #ffffff;
+            --bg3: #e8eeff;
+            --card: #ffffff;
+            --border: #d0d8f0;
+            --text: #1a1a3e;
+            --muted: #6b7280;
+            --accent: #4f46e5;
+            --accent2: #7c3aed;
+            --accent3: #0ea5e9;
+            --green: #10b981;
+            --red: #ef4444;
+            --gold: #f59e0b;
+            --pink: #ec4899;
+            --shadow: 0 4px 24px rgba(79, 70, 229, 0.10);
+            --radius: 16px;
+            --nav-bg: rgba(255, 255, 255, 0.97);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0d0d1f;
+            --bg2: #13132b;
+            --bg3: #1a1a38;
+            --card: #181832;
+            --border: rgba(79, 70, 229, 0.22);
+            --text: #e8e8ff;
+            --muted: #8888bb;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --nav-bg: rgba(13, 13, 31, 0.97);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background .3s, color .3s;
+        }
+
+        /* ── Navbar ── */
+        .topnav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            border-bottom: 2px solid var(--border);
+            min-height: 66px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 24px;
+            transition: background .3s, border .3s;
+            gap: 12px;
+        }
+
+        .nav-brand {
+            font-size: .98rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-brand .brand-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .user-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg3);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 5px 14px 5px 8px;
+            font-size: .78rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .user-chip .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .access-badge {
+            font-size: .62rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .badge-admin {
+            background: rgba(245, 158, 11, .18);
+            color: #d97706;
+            border: 1.5px solid #d97706;
+        }
+
+        .badge-student {
+            background: rgba(79, 70, 229, .15);
+            color: var(--accent);
+            border: 1.5px solid var(--accent);
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+            box-shadow: var(--shadow);
+        }
+
+        .icon-btn:hover {
+            border-color: var(--accent);
+            transform: scale(1.08);
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: rgba(239, 68, 68, .1);
+            border: 2px solid rgba(239, 68, 68, .3);
+            color: var(--red);
+            font-family: 'Nunito', sans-serif;
+            font-size: .78rem;
+            font-weight: 800;
+            transition: all .2s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, .2);
+            border-color: var(--red);
+        }
+
+        /* ── Page content ── */
+        .page-content {
+            padding-top: 86px;
+            padding-bottom: 60px;
+        }
+
+        /* ── Hero strip ── */
+        .updates-hero {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            padding: 40px 24px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .updates-hero::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            pointer-events: none;
+        }
+
+        .updates-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+            pointer-events: none;
+        }
+
+        .updates-hero h1 {
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .updates-hero .hero-sub {
+            color: rgba(255, 255, 255, .82);
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Last updated badge ── */
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .15);
+            border: 1.5px solid rgba(255, 255, 255, .3);
+            color: #fff;
+            font-size: .75rem;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-top: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: livePulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(1.35);
+            }
+        }
+
+        /* ── Controls ── */
+        .controls-section {
+            padding: 28px 24px 4px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .controls-top {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .search-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 14px 12px 44px;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Nunito', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            outline: none;
+            transition: border .2s, box-shadow .2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+        }
+
+        .search-input::placeholder {
+            color: var(--muted);
+            opacity: .8;
+        }
+
+        .count-chip {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 7px 16px;
+            font-size: .8rem;
+            font-weight: 800;
+            color: var(--muted);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .count-chip span {
+            color: var(--accent);
+            font-size: .95rem;
+        }
+
+        /* Category pills */
+        .cat-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cat-pill {
+            padding: 7px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: .78rem;
+            font-weight: 800;
+            border: 2px solid var(--border);
+            background: var(--card);
+            color: var(--muted);
+            transition: all .22s;
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .cat-pill.active {
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .cat-count {
+            font-size: .65rem;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 10px;
+            padding: 1px 6px;
+        }
+
+        /* ── Grid ── */
+        .grid-section {
+            padding: 20px 24px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── Update card ── */
+        .update-card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all .25s;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            animation: cardIn .35s ease both;
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .update-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 32px rgba(79, 70, 229, 0.18);
+        }
+
+        .card-accent-bar {
+            height: 4px;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 20px 20px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cat-tag {
+            font-size: .65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 4px 11px;
+            border-radius: 20px;
+            letter-spacing: .5px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .card-content {
+            font-size: .85rem;
+            color: var(--muted);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 16px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .dl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-size: .8rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all .2s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .dl-btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .dl-btn-primary:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(79, 70, 229, .35);
+        }
+
+        .dl-btn-plain {
+            background: var(--bg3);
+            color: var(--muted);
+            border: 2px solid var(--border);
+        }
+
+        .dl-btn-plain:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ── Empty state ── */
+        .empty-state {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--muted);
+        }
+
+        .empty-state .empty-icon {
+            font-size: 3.5rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .empty-state h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .empty-state p {
+            font-size: .88rem;
+        }
+
+        /* ── Loading skeleton ── */
+        .skeleton-card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .skel {
+            background: linear-gradient(90deg, var(--bg3) 25%, var(--border) 50%, var(--bg3) 75%);
+            background-size: 200%;
+            border-radius: 8px;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .skel-bar {
+            height: 4px;
+            margin-bottom: 16px;
+            border-radius: 0;
+        }
+
+        .skel-tag {
+            height: 22px;
+            width: 80px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .skel-title {
+            height: 20px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .skel-line {
+            height: 14px;
+            margin-bottom: 8px;
+        }
+
+        .skel-line.short {
+            width: 65%;
+        }
+
+        .skel-btn {
+            height: 36px;
+            width: 120px;
+            margin-top: 14px;
+            border-radius: 10px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--bg2);
+            border-top: 2px solid var(--border);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--muted);
+            font-size: .8rem;
+            font-weight: 600;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .topnav {
+                padding: 8px 14px;
+            }
+
+            .user-chip .user-name {
+                display: none;
+            }
+
+            .controls-section,
+            .grid-section {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Navbar ── -->
+    <nav class="topnav" id="topnav">
+        <a href="index.html" class="nav-brand">
+            <div class="brand-icon">🧠</div>
+            NextGenIT <span style="color:var(--muted);font-weight:700;margin-left:4px;">Hub</span>
+        </a>
+        <div class="nav-right">
+            <div class="user-chip" id="userChip">
+                <div class="avatar" id="userAvatar">?</div>
+                <span class="user-name" id="userName">User</span>
+                <span class="access-badge badge-student" id="accessBadge">Student</span>
+            </div>
+            <button class="icon-btn" id="themeBtn" title="Toggle theme">🌙</button>
+            <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
+        </div>
+    </nav>
+
+    <!-- ── Page content ── -->
+    <div class="page-content">
+
+        <!-- Hero -->
+        <div class="updates-hero">
+            <h1>🚀 AI Updates Feed</h1>
+            <p class="hero-sub">Live AI news, tools, videos and more — always fresh from the sheet</p>
+            <div class="last-updated" id="lastUpdated">
+                <div class="pulse-dot"></div>
+                <span id="lastUpdatedText">Fetching updates…</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-section">
+            <div class="controls-top">
+                <div class="search-wrap">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Search updates by title, content or category…">
+                </div>
+                <div class="count-chip">Showing <span id="countDisplay">—</span> updates</div>
+            </div>
+            <div class="cat-pills" id="catPills">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid-section">
+            <div class="updates-grid" id="updatesGrid">
+                <!-- Skeleton placeholders -->
+                <div class="skeleton-card">
+                    <div class="skel skel-bar"></div>
+                    <div class="skel skel-tag"></div>
+                    <div class="skel skel-title"></div>
+                    <div class="skel skel-line"></div>
+                    <div class="skel skel-line short"></div>
+                    <div class="skel skel-btn"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skel skel-bar"></div>
+                    <div class="skel skel-tag"></div>
+                    <div class="skel skel-title"></div>
+                    <div class="skel skel-line"></div>
+                    <div class="skel skel-line short"></div>
+                    <div class="skel skel-btn"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skel skel-bar"></div>
+                    <div class="skel skel-tag"></div>
+                    <div class="skel skel-title"></div>
+                    <div class="skel skel-line"></div>
+                    <div class="skel skel-line short"></div>
+                    <div class="skel skel-btn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 NextGenIT AI Hub &nbsp;·&nbsp; Live updates from Google Sheets &nbsp;·&nbsp; Refreshes every 30s</p>
+    </footer>
+
+    <script>
+        // ─── Session guard ───
+        const session = JSON.parse(sessionStorage.getItem('ngi_user') || 'null');
+        if (!session) { window.location.href = 'login.html'; }
+
+        // ─── Theme ───
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('themeBtn');
+        const savedTheme = localStorage.getItem('ngi_theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeBtn.addEventListener('click', () => {
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('ngi_theme', next);
+            themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+
+        // ─── Populate user info ───
+        if (session) {
+            const initials = (session.full_name || 'U').split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+            document.getElementById('userAvatar').textContent = initials;
+            document.getElementById('userName').textContent = session.full_name || session.username;
+            const badge = document.getElementById('accessBadge');
+            const level = (session.access_level || 'Student');
+            badge.textContent = level;
+            badge.className = 'access-badge ' + (level.toLowerCase() === 'admin' ? 'badge-admin' : 'badge-student');
+        }
+
+        // ─── Logout ───
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            sessionStorage.removeItem('ngi_user');
+            window.location.href = 'login.html';
+        });
+
+        // ─── Google Sheet key + JSONP fetcher (works from file://, no CORS) ───
+        const SHEET_KEY = '2PACX-1vRuberYeW5hQZ-DoJR-7-QrL7VjwAv_IB3ETi2XqVgPQE6tRFqqPFmc7MAnY-PJVUx3SteZ5Fqd6ppd';
+        function fetchSheet(sheetName) {
+            return new Promise((resolve, reject) => {
+                const cb = 'ngi_cb_' + Date.now();
+                const script = document.createElement('script');
+                const timer = setTimeout(() => { cleanup(); reject(new Error('Timeout')); }, 12000);
+                function cleanup() {
+                    clearTimeout(timer);
+                    delete window[cb];
+                    if (script.parentNode) script.parentNode.removeChild(script);
+                }
+                window[cb] = function (data) {
+                    cleanup();
+                    try {
+                        const cols = (data.table.cols || []).map(c => (c.label || c.id || '').trim());
+                        const rows = (data.table.rows || []).map(row => {
+                            const obj = {};
+                            cols.forEach((col, i) => {
+                                const cell = row.c && row.c[i];
+                                obj[col] = (cell && cell.v !== null && cell.v !== undefined) ? String(cell.v).trim() : '';
+                            });
+                            return obj;
+                        });
+                        resolve(rows);
+                    } catch (e) { reject(e); }
+                };
+                script.onerror = () => { cleanup(); reject(new Error('Script error')); };
+                script.src = `https://docs.google.com/spreadsheets/d/e/${SHEET_KEY}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&callback=${cb}&t=${Date.now()}`;
+                document.head.appendChild(script);
+            });
+        }
+
+        // ─── Category color palette ───
+        const CAT_COLORS = [
+            { bg: 'rgba(79,70,229,.15)', color: '#4f46e5', bar: '#4f46e5' },
+            { bg: 'rgba(124,58,237,.15)', color: '#7c3aed', bar: '#7c3aed' },
+            { bg: 'rgba(14,165,233,.15)', color: '#0ea5e9', bar: '#0ea5e9' },
+            { bg: 'rgba(16,185,129,.15)', color: '#10b981', bar: '#10b981' },
+            { bg: 'rgba(245,158,11,.15)', color: '#d97706', bar: '#f59e0b' },
+            { bg: 'rgba(236,72,153,.15)', color: '#ec4899', bar: '#ec4899' },
+            { bg: 'rgba(239,68,68,.15)', color: '#ef4444', bar: '#ef4444' },
+            { bg: 'rgba(20,184,166,.15)', color: '#14b8a6', bar: '#14b8a6' },
+        ];
+        const catColorMap = {};
+        let catColorIdx = 0;
+
+        function getCatStyle(cat) {
+            const key = cat.trim().toLowerCase();
+            if (!catColorMap[key]) {
+                catColorMap[key] = CAT_COLORS[catColorIdx % CAT_COLORS.length];
+                catColorIdx++;
+            }
+            return catColorMap[key];
+        }
+
+        // ─── CSV parser ───
+        function parseCSV(text) {
+            const lines = text.trim().split('\n');
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+            return lines.slice(1).map(line => {
+                const vals = [];
+                let cur = '', inQ = false;
+                for (let ch of line) {
+                    if (ch === '"') { inQ = !inQ; }
+                    else if (ch === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
+                    else { cur += ch; }
+                }
+                vals.push(cur.trim());
+                const obj = {};
+                headers.forEach((h, i) => obj[h] = (vals[i] || '').replace(/^"|"$/g, '').trim());
+                return obj;
+            });
+        }
+
+        // ─── State ───
+        let allUpdates = [];
+        let activeCategory = 'all';
+        let searchQuery = '';
+        let categoryOrder = [];
+
+        // ─── Render cards ───
+        function renderCards() {
+            const grid = document.getElementById('updatesGrid');
+            const query = searchQuery.toLowerCase();
+            const activeCatLower = activeCategory.toLowerCase();
+
+            const filtered = allUpdates.filter(u => {
+                const catMatch = activeCatLower === 'all' || (u.Category || '').trim().toLowerCase() === activeCatLower;
+                const q = query.trim();
+                const textMatch = !q ||
+                    (u.Title || '').toLowerCase().includes(q) ||
+                    (u.Content || '').toLowerCase().includes(q) ||
+                    (u.Category || '').toLowerCase().includes(q);
+                return catMatch && textMatch;
+            });
+
+            document.getElementById('countDisplay').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+        <div class="empty-state">
+          <span class="empty-icon">🔍</span>
+          <h3>No updates found</h3>
+          <p>Try a different search term or category filter.</p>
+        </div>`;
+                return;
+            }
+
+            // Newest first (reverse order from sheet)
+            const reversed = [...filtered].reverse();
+
+            grid.innerHTML = reversed.map((u, idx) => {
+                const cat = (u.Category || 'General').trim();
+                const style = getCatStyle(cat);
+                const hasLink = u.Download_Link && u.Download_Link !== '[Link]' && u.Download_Link !== 'Link' && u.Download_Link.startsWith('http');
+                const animDelay = Math.min(idx, 8) * 50;
+
+                return `
+        <div class="update-card" style="animation-delay:${animDelay}ms">
+          <div class="card-accent-bar" style="background:${style.bar}"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="cat-tag" style="background:${style.bg};color:${style.color};border:1.5px solid ${style.color}40">${cat}</span>
+            </div>
+            <div class="card-title">${escHtml(u.Title || 'Untitled')}</div>
+            <div class="card-content">${escHtml(u.Content || '')}</div>
+            <div class="card-footer">
+              ${hasLink
+                        ? `<a href="${escHtml(u.Download_Link)}" target="_blank" rel="noopener" class="dl-btn dl-btn-primary">📥 Open Link</a>`
+                        : `<span class="dl-btn dl-btn-plain">📄 No Link</span>`}
+            </div>
+          </div>
+        </div>`;
+            }).join('');
+        }
+
+        function escHtml(s) {
+            return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // ─── Build category pills ───
+        function buildCategoryPills() {
+            const pillsEl = document.getElementById('catPills');
+
+            // Count per category
+            const counts = {};
+            allUpdates.forEach(u => {
+                const c = (u.Category || 'General').trim();
+                counts[c] = (counts[c] || 0) + 1;
+            });
+
+            // Add "All" pill first
+            const total = allUpdates.length;
+            const pills = [{ key: 'all', label: 'All Updates', count: total, style: null }];
+            categoryOrder.forEach(cat => {
+                if (counts[cat]) pills.push({ key: cat.toLowerCase(), label: cat, count: counts[cat], style: getCatStyle(cat) });
+            });
+
+            pillsEl.innerHTML = pills.map(p => {
+                const isAll = p.key === 'all';
+                const isActive = p.key === activeCategory || (activeCategory === 'all' && isAll);
+                const activeStyle = isAll
+                    ? 'background:var(--accent);border-color:var(--accent);'
+                    : p.style ? `background:${p.style.bar};border-color:${p.style.bar};` : '';
+                return `
+        <button class="cat-pill ${isActive ? 'active' : ''}" 
+                data-cat="${p.key}"
+                style="${isActive ? activeStyle : ''}">
+          ${p.label}
+          <span class="cat-count">${p.count}</span>
+        </button>`;
+            }).join('');
+
+            // Bind click
+            pillsEl.querySelectorAll('.cat-pill').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeCategory = btn.dataset.cat;
+                    buildCategoryPills();
+                    renderCards();
+                });
+            });
+        }
+
+        // ─── Fetch data (JSONP — no CORS restriction) ───
+        async function fetchUpdates(isInitial = false) {
+            try {
+                const rows = (await fetchSheet('Updates')).filter(r => r.Title && r.Title.trim());
+
+                // Discover category order from sheet
+                const seenCats = new Set();
+                const newOrder = [];
+                rows.forEach(r => {
+                    const c = (r.Category || 'General').trim();
+                    if (!seenCats.has(c)) { seenCats.add(c); newOrder.push(c); }
+                });
+                categoryOrder = newOrder;
+                allUpdates = rows;
+
+                buildCategoryPills();
+                renderCards();
+
+                // Timestamp
+                const now = new Date();
+                document.getElementById('lastUpdatedText').textContent =
+                    'Last updated: ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            } catch (err) {
+                if (isInitial) {
+                    document.getElementById('updatesGrid').innerHTML = `
+          <div class="empty-state">
+            <span class="empty-icon">⚠️</span>
+            <h3>Failed to load updates</h3>
+            <p>Could not reach the Google Sheet. Check your connection and refresh.</p>
+          </div>`;
+                    document.getElementById('lastUpdatedText').textContent = 'Update failed — retrying…';
+                }
+            }
+        }
+
+        // ─── Search ───
+        document.getElementById('searchInput').addEventListener('input', e => {
+            searchQuery = e.target.value;
+            renderCards();
+        });
+
+        // ─── Initial load + auto-refresh every 30s ───
+        fetchUpdates(true);
+        setInterval(() => fetchUpdates(false), 30000);
+    </script>
+</body>
+
+</html>
