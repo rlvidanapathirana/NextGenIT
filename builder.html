@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prompt Builder | NextGenIT AI Guide</title>
+<link rel="stylesheet" href="shared.css"/>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'si,ta,en',layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+.hero{background:linear-gradient(135deg,#fff7ed,#fef3c7);padding-bottom:50px;}
+[data-theme="dark"] .hero{background:linear-gradient(135deg,#1c0f00,#180c00);}
+.builder-card{background:var(--bg2);border:2px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:.8rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.field label span{color:var(--muted);font-weight:400;text-transform:none;font-size:.78rem;}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;background:var(--bg3);border:2px solid var(--border);border-radius:10px;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;outline:none;transition:border .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);}
+.field textarea{resize:vertical;min-height:80px;}
+.field select option{background:var(--bg2);}
+.gen-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:900;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.5px;}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(79,70,229,.4);}
+.magic-btn{background:linear-gradient(135deg, #10b981, #059669);}
+.magic-btn:hover{box-shadow:0 8px 28px rgba(16,185,129,.4);}
+.img-btn{background:linear-gradient(135deg, var(--pink), #be185d);}
+.img-btn:hover{box-shadow:0 8px 28px rgba(236,72,153,.4);}
+.output-box{background:var(--bg3);border:2px solid var(--accent);border-radius:12px;padding:20px;margin-top:24px;display:none;position:relative;}
+.output-box.show{display:block;animation:fadeUp .4s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.output-label{font-size:.7rem;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.output-text{font-family:'Fira Code',monospace;font-size:.85rem;line-height:1.9;white-space:pre-wrap;word-break:break-word;max-height: 400px;overflow-y: auto;}
+.output-actions{display:flex;gap:10px;margin-top:16px;}
+.copy-all-btn{flex:1;padding:11px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:.88rem;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.copy-all-btn:hover{background:var(--accent2);transform:translateY(-1px);}
+.copy-all-btn.copied{background:var(--green)!important;}
+.clear-btn{padding:11px 20px;background:var(--bg3);border:2px solid var(--border);border-radius:10px;font-size:.88rem;font-weight:800;cursor:pointer;color:var(--muted);transition:all .2s;}
+.clear-btn:hover{border-color:var(--red);color:var(--red);}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.field-grid{grid-template-columns:1fr;}}
+.template-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:28px;}
+.template-btn{padding:12px 14px;background:var(--card);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:.82rem;font-weight:700;color:var(--text);transition:all .2s;text-align:left;line-height:1.4;}
+.template-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.char-count{font-size:.72rem;color:var(--muted);text-align:right;margin-top:4px;}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-top">
+    <a href="index.html" class="nav-logo">🤖 NextGenIT AI Guide</a>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰ Menu</button>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">🏠 Home</a>
+    <a href="guide.html">📖 Framework</a>
+    <a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ AI Tools</a>
+    <a href="practice.html">✏️ Practice</a>
+    <a href="builder.html" class="active">⚡ Builder</a>
+    <a href="others.html">🌟 More Tools</a>
+  </div>
+  <div class="nav-right">
+    <div class="translate-wrap notranslate"><div id="google_translate_element"></div></div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero page-content">
+  <div class="container" style="text-align:center;">
+    <span class="hero-emoji">⚡</span>
+    <h1>AI Prompt <span>Builder</span></h1>
+    <p>Fill in the blanks — we'll build the perfect prompt for you automatically! Then just copy and paste it into any AI tool.</p>
+    <div class="hero-badges">
+      <span class="badge badge-blue">🤖 Works with Any AI</span>
+      <span class="badge badge-green">⚡ Instant Results</span>
+      <span class="badge badge-gold">✨ Magic Auto-Enhance</span>
+    </div>
+  </div>
+</div>
+
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag">⚡ Quick Start Templates</span>
+  <h2 class="sec-h">Start with a <span>Template</span></h2>
+  <p class="sec-sub">Click any template below to auto-fill the builder — then customize it to your needs!</p>
+
+  <div class="template-grid">
+    <button class="template-btn" onclick="loadTemplate('email')">📧 Write a Work Email</button>
+    <button class="template-btn" onclick="loadTemplate('sinhala')">🇱🇰 Sinhala Business Letter</button>
+    <button class="template-btn" onclick="loadTemplate('social')">📱 Social Media Post</button>
+    <button class="template-btn" onclick="loadTemplate('report')">📊 Data Analysis Report</button>
+    <button class="template-btn" onclick="loadTemplate('explain')">🎓 Explain a Topic Simply</button>
+    <button class="template-btn" onclick="loadTemplate('code')">💻 Code Review</button>
+    <button class="template-btn" onclick="loadTemplate('translate')">🔤 Translation Task</button>
+  </div>
+</div>
+</section>
+
+<!-- TEXT PROMPT BUILDER -->
+<section class="section">
+<div class="container">
+  <span class="sec-tag">🛠️ Build Your Text Prompt</span>
+  <h2 class="sec-h">Fill in the <span>Blanks</span></h2>
+  <p class="sec-sub">You don't need to fill every field — just the ones that are relevant to your task. More fields = better prompt!</p>
+
+  <div class="builder-card">
+    <div class="field-grid">
+      <div class="field">
+        <label>🎭 Persona <span>(Who should the AI be?)</span></label>
+        <input type="text" id="b-persona" placeholder="e.g. You are an expert marketing consultant..."/>
+      </div>
+      <div class="field">
+        <label>✅ Task <span>(What should the AI DO?)</span></label>
+        <input type="text" id="b-task" placeholder="e.g. Write 5 social media post ideas..."/>
+      </div>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label>👥 Target Audience <span>(Who is reading this?)</span></label>
+        <input type="text" id="b-audience" placeholder="e.g. Beginners, students, CEOs..."/>
+      </div>
+      <div class="field">
+        <label>🗣️ Tone of Voice <span>(How should it sound?)</span></label>
+        <input type="text" id="b-tone" placeholder="e.g. Professional, friendly, funny..."/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>🌍 Context <span>(Background info — what's the situation?)</span></label>
+      <textarea id="b-context" placeholder="e.g. My company is a software startup launching a new AI product. Budget is Rs. 5,000..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>📖 References <span>(Examples or style guide for the AI to follow)</span></label>
+      <textarea id="b-refs" placeholder="e.g. Use a casual tone similar to this example: 'Hey tech lovers! Ready to level up?'..." style="min-height:60px;"></textarea>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label>📋 Output Format <span>(How should the answer look?)</span></label>
+        <select id="b-format">
+          <option value="">Choose format...</option>
+          <option value="Present your response as a numbered list.">📋 Numbered List</option>
+          <option value="Present your response as bullet points.">• Bullet Points</option>
+          <option value="Present your response as a comparison table.">📊 Comparison Table</option>
+          <option value="Present your response as a formal letter or email.">📧 Formal Letter / Email</option>
+          <option value="Present your response as step-by-step instructions.">🔢 Step-by-Step</option>
+          <option value="Present your response as a structured report with headings.">📄 Structured Report</option>
+          <option value="Present your response as a short paragraph.">📝 Short Paragraph</option>
+          <option value="Present your response as a formal outline.">📑 Formal Outline</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>🌐 Output Language <span>(Which language?)</span></label>
+        <select id="b-lang">
+          <option value="">Default / Any</option>
+          <option value="Write your entire response in English.">🇬🇧 English</option>
+          <option value="Write your entire response in Sinhala (සිංහල).">🇱🇰 Sinhala (සිංහල)</option>
+          <option value="Write your entire response in both English and Sinhala.">🌐 English + Sinhala</option>
+          <option value="Write your entire response in formal business English.">💼 Formal Business English</option>
+          <option value="Use simple, everyday language that a 12-year-old can understand.">🎓 Simple / Easy Language</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>🎯 Constraints <span>(Word limits, things to avoid?)</span></label>
+      <input type="text" id="b-constraints" placeholder="e.g. Keep it under 150 words. No technical jargon. Include 3 hashtags..."/>
+    </div>
+
+    <div class="field-grid" style="margin-top:20px;">
+      <button class="gen-btn" onclick="buildPrompt()">⚡ Generate Basic Prompt</button>
+      <button class="gen-btn magic-btn" onclick="buildMagicPrompt()">✨ Magic Auto-Enhance</button>
+    </div>
+
+    <div class="output-box" id="outputBox">
+      <div class="output-label">✨ Your Generated Prompt — Ready to Copy & Paste!</div>
+      <div class="output-text" id="outputText"></div>
+      <div class="output-actions">
+        <button class="copy-all-btn" id="copyAllBtn" onclick="copyPrompt('outputText', 'copyAllBtn')">📋 Copy Full Prompt</button>
+        <button class="clear-btn" onclick="clearAll()">🗑️ Clear & Start Over</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- IMAGE PROMPT BUILDER -->
+<section class="section alt">
+<div class="container">
+  <span class="sec-tag" style="background:var(--pink);">🖼️ Image Prompt Generator</span>
+  <h2 class="sec-h">Create <span>Ultra-Realistic Images</span></h2>
+  <p class="sec-sub">Type a few words, and our Magic Engine will convert it into a Midjourney/Stable Diffusion ready super-prompt!</p>
+
+  <div class="builder-card">
+    <div class="field">
+      <label style="color:var(--pink);">🖼️ Template Style</label>
+      <select id="img-template">
+        <option value="portrait">👤 Professional Lifestyle Portrait</option>
+        <option value="beach">🏖️ Tropical Beach Walking Portrait</option>
+        <option value="cinematic">🎬 Cinematic Dark Fashion Portrait</option>
+        <option value="travel">🌊 Travel Portrait (Standing on rocks/sea)</option>
+        <option value="night">🌙 Cinematic Night Portrait (Green Lanterns)</option>
+        <option value="motorcycle">🏍️ Waterfront Motorcycle Portrait</option>
+        <option value="collage">📸 3x3 Multi-Frame Portrait Collage</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label style="color:var(--pink);">🧑 Subject / Character <span>(Who is in the photo?)</span></label>
+      <input type="text" id="img-subject" placeholder="e.g. A natural Sri Lankan woman wearing a red dress..."/>
+    </div>
+
+    <div class="field">
+      <label style="color:var(--pink);">🌍 Environment / Background <span>(Where are they?)</span></label>
+      <input type="text" id="img-env" placeholder="e.g. A busy street in Colombo at night..."/>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label style="color:var(--pink);">💡 Lighting</label>
+        <input type="text" id="img-lighting" placeholder="e.g. Golden hour sunset lighting"/>
+      </div>
+      <div class="field">
+        <label style="color:var(--pink);">🎨 Extra Styling (Optional)</label>
+        <input type="text" id="img-style" placeholder="e.g. Fujifilm XT4, vintage film look"/>
+      </div>
+    </div>
+
+    <button class="gen-btn img-btn" onclick="buildImagePrompt()" style="margin-top:20px;">✨ Generate Ultra-Realistic Prompt</button>
+
+    <div class="output-box" id="imgOutputBox" style="border-color:var(--pink);">
+      <div class="output-label" style="color:var(--pink);">✨ Your Ready-to-Use Image Prompt</div>
+      <div class="output-text" id="imgOutputText"></div>
+      <div class="output-actions">
+        <button class="copy-all-btn img-btn" id="imgCopyBtn" onclick="copyPrompt('imgOutputText', 'imgCopyBtn')">📋 Copy Full Prompt</button>
+        <button class="clear-btn" onclick="clearImageAll()">🗑️ Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="section">
+<div class="container">
+  <span class="sec-tag">📖 How to Use This</span>
+  <h2 class="sec-h">3 Simple <span>Steps</span></h2>
+  <div class="steps-list">
+    <div class="step-item fade-in">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Fill in the fields (at least "Task")</h4>
+        <p>Type what you want in each box. The more you fill in, the better the prompt. "Task" is the most important one!</p>
+      </div>
+    </div>
+    <div class="step-item fade-in">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Click "Generate" and copy your prompt</h4>
+        <p>Your perfectly structured prompt appears instantly. Click the blue "Copy" button to copy it.</p>
+      </div>
+    </div>
+    <div class="step-item fade-in">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Paste it into ChatGPT / Gemini / Midjourney!</h4>
+        <p>Open any AI tool, paste your prompt, and press Enter. Enjoy your amazing answer! 🎉</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+  <div style="font-size:1.5rem;margin-bottom:10px;">🤖</div>
+  <p style="font-weight:900;font-size:1rem;color:var(--accent);margin-bottom:8px;">NextGenIT AI Prompting Guide</p>
+  <div class="footer-links">
+    <a href="index.html">🏠 Home</a><a href="guide.html">📖 Framework</a><a href="prompts.html">💬 Prompts</a>
+    <a href="tools.html">🛠️ Tools</a><a href="practice.html">✏️ Practice</a><a href="builder.html">⚡ Builder</a><a href="others.html">🌟 More</a>
+  </div>
+  <p>Made with ❤️ by Lakshan Vidanapathirana | Upgraded with Auto-Enhance Engine</p>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const templates = {
+  email: {
+    persona: "You are a professional business communicator",
+    task: "Write a polite follow-up email to a client who hasn't replied in 3 days",
+    audience: "Business client",
+    tone: "Polite and professional",
+    context: "The client [Client Name] attended our product demo last Monday. They seemed very interested.",
+    refs: "",
+    format: "Present your response as a formal letter or email.",
+    lang: "Write your entire response in formal business English.",
+    constraints: "Keep it under 120 words. End with a clear call-to-action."
+  },
+  sinhala: {
+    persona: "ඔබ professional ව්‍යාපාරික ලේඛකයෙකි",
+    task: "Write a formal business apology letter in Sinhala",
+    audience: "A valued customer",
+    tone: "Respectful and formal",
+    context: "Service delay සම්බන්ධයෙන් සමාව ඉල්ලීමේ ලිපියකි",
+    refs: "",
+    format: "Present your response as a formal letter or email.",
+    lang: "Write your entire response in Sinhala (සිංහල).",
+    constraints: "Words 200ක් ඇතුළත. Formal Sinhala business letter format."
+  },
+  social: {
+    persona: "You are a creative social media manager",
+    task: "Write 3 engaging Instagram captions for my business",
+    audience: "Young Sri Lankans aged 18-25",
+    tone: "Energetic and fun",
+    context: "My business is [Business Name] — a [type of business] in Colombo.",
+    refs: "",
+    format: "Present your response as a numbered list.",
+    lang: "Write your entire response in English.",
+    constraints: "Each caption under 100 words. Include 1 call-to-action and 3 hashtags."
+  },
+  report: {
+    persona: "You are a senior business analyst",
+    task: "Analyze the sales data and write a summary report",
+    audience: "Company CEO",
+    tone: "Data-driven and formal",
+    context: "The data is for Q3 2024 sales in Sri Lanka.",
+    refs: "",
+    format: "Present your response as a structured report with headings.",
+    lang: "Write your entire response in formal business English.",
+    constraints: "Under 400 words. Include top 3 insights and 2 recommendations."
+  },
+  explain: {
+    persona: "You are a friendly teacher",
+    task: "Explain [Topic] in the simplest possible way",
+    audience: "A 10-year-old student",
+    tone: "Friendly and encouraging",
+    context: "This is for their school homework. They have no prior knowledge.",
+    refs: "",
+    format: "Present your response as step-by-step instructions.",
+    lang: "Use simple, everyday language.",
+    constraints: "Under 200 words. Use a real-life analogy. No scientific jargon."
+  },
+  code: {
+    persona: "You are a senior software engineer",
+    task: "Review my code and suggest improvements",
+    audience: "Junior Developer",
+    tone: "Constructive and professional",
+    context: "This is a function for a production web app.",
+    refs: "",
+    format: "Present your response as a numbered list.",
+    lang: "Write your entire response in English.",
+    constraints: "Point out security issues, performance improvements, and style issues."
+  },
+  translate: {
+    persona: "You are a professional translator",
+    task: "Translate the following text accurately",
+    audience: "General public",
+    tone: "Neutral and accurate",
+    context: "This is a document written in [source language].",
+    refs: "",
+    format: "Present your response as a formal letter or email.",
+    lang: "Write your entire response in Sinhala (සිංහල).",
+    constraints: "Keep the original meaning. Preserve all names. [Paste text below]"
+  }
+};
+
+function loadTemplate(name) {
+  const t = templates[name];
+  if (!t) return;
+  document.getElementById('b-persona').value = t.persona || '';
+  document.getElementById('b-task').value = t.task || '';
+  document.getElementById('b-audience').value = t.audience || '';
+  document.getElementById('b-tone').value = t.tone || '';
+  document.getElementById('b-context').value = t.context || '';
+  document.getElementById('b-refs').value = t.refs || '';
+  document.getElementById('b-constraints').value = t.constraints || '';
+  
+  const fmtSel = document.getElementById('b-format');
+  for (let opt of fmtSel.options) { if (opt.value === (t.format||'')) { fmtSel.value = t.format; break; } }
+  
+  const langSel = document.getElementById('b-lang');
+  for (let opt of langSel.options) { if (opt.value === (t.lang||'')) { langSel.value = t.lang; break; } }
+  
+  document.getElementById('b-persona').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function buildPrompt() {
+  const persona = document.getElementById('b-persona').value.trim();
+  const task = document.getElementById('b-task').value.trim();
+  const audience = document.getElementById('b-audience').value.trim();
+  const tone = document.getElementById('b-tone').value.trim();
+  const ctx = document.getElementById('b-context').value.trim();
+  const refs = document.getElementById('b-refs').value.trim();
+  const fmt = document.getElementById('b-format').value;
+  const lang = document.getElementById('b-lang').value;
+  const constraints = document.getElementById('b-constraints').value.trim();
+
+  if (!task) {
+    alert('Please fill in the Task field at minimum — what should the AI DO?');
+    document.getElementById('b-task').focus();
+    return;
+  }
+
+  let parts = [];
+  if (persona) parts.push(persona + '.');
+  parts.push(task + '.');
+  if (audience) parts.push('\nTarget Audience: ' + audience);
+  if (tone) parts.push('\nTone of Voice: ' + tone);
+  if (ctx) parts.push('\nContext: ' + ctx);
+  if (refs) parts.push('\nRefasync function buildMagicPrompt() {
+  const persona = document.getElementById('b-persona').value.trim();
+  const task = document.getElementById('b-task').value.trim();
+  const audience = document.getElementById('b-audience').value.trim();
+  const tone = document.getElementById('b-tone').value.trim();
+  const ctx = document.getElementById('b-context').value.trim();
+  const refs = document.getElementById('b-refs').value.trim();
+  const fmt = document.getElementById('b-format').value;
+  const lang = document.getElementById('b-lang').value;
+  const constraints = document.getElementById('b-constraints').value.trim();
+
+  if (!task) {
+    alert('Please fill in the Task field at minimum to use Magic Enhance!');
+    document.getElementById('b-task').focus();
+    return;
+  }
+
+  let instructions = [];
+  if (fmt) instructions.push("Format: " + fmt);
+  if (lang) instructions.push("Language: " + lang);
+  if (constraints) instructions.push("Strict Rules: " + constraints);
+  
+  const originalBtnText = document.querySelector('.magic-btn').textContent;
+  document.querySelector('.magic-btn').textContent = "✨ Enhancing (AI)...";
+  document.querySelector('.magic-btn').disabled = true;
+
+  // Simulate network delay for UI feedback
+  await new Promise(r => setTimeout(r, 600));
+
+  let enhanced = `[System Meta-Instruction: Act as an elite, world-class expert specializing in the domain required to fulfill the user's request. Execute with maximum precision and depth.]\n\n`;
+  
+  enhanced += `### 🎭 ASSIGNED EXPERT PERSONA\n`;
+  if (persona) {
+      enhanced += `Embody the following persona fully: "${persona}". Adopt the mindset, vocabulary, and analytical depth of an elite professional in this field. Do not break character.\n`;
+  } else {
+      enhanced += `Determine the most optimal expert persona for the task and adopt it completely.\n`;
+  }
+
+  enhanced += `\n### 🎯 CORE OBJECTIVE\n`;
+  enhanced += `Your absolute primary goal is: "${task}". Execute this with exceptional quality, surpassing standard expectations.\n`;
+
+  if (ctx || audience || tone) {
+      enhanced += `\n### 🌍 CONTEXT & ALIGNMENT\n`;
+      if (ctx) enhanced += `- **Background Context:** ${ctx}\n`;
+      if (audience) enhanced += `- **Target Audience:** ${audience}. Tailor the complexity, phrasing, and structure specifically for them.\n`;
+      if (tone) enhanced += `- **Mandatory Tone:** ${tone}. Ensure every sentence reflects this tone perfectly without deviation.\n`;
+  }
+
+  if (refs) {
+      enhanced += `\n### 📚 REFERENCE MATERIAL\n`;
+      enhanced += `Carefully analyze the following reference material. Synthesize its style, key patterns, and structural elements into your final output:\n"${refs}"\n`;
+  }
+
+  if (instructions && instructions.length > 0) {
+      enhanced += `\n### 🛡️ STRICT EXECUTION RULES\n`;
+      enhanced += `You MUST follow these constraints flawlessly. Failure is not an option:\n`;
+      instructions.forEach(inst => {
+          if (inst.trim()) enhanced += `1. [CRITICAL] ${inst.trim()}\n`;
+      });
+  }
+
+  enhanced += `\n### 🧠 EXECUTION DIRECTIVE\n`;
+  enhanced += `Before writing your final response, take a deep breath. Think step-by-step through the optimal structure. Ensure all constraints are met, and deliver a masterpiece.`;
+
+  document.getElementById('outputText').textContent = enhanced;
+  
+  const ob = document.getElementById('outputBox');
+  ob.classList.add('show');
+  ob.scrollIntoView({behavior:'smooth',block:'nearest'});
+  
+  document.querySelector('.magic-btn').textContent = originalBtnText;
+  document.querySelector('.magic-btn').disabled = false;
+}
+
+// IMAGE PROMPT BUILDER LOGIC
+const imgTemplates = {
+    portrait: "CREATE AN ULTRA-REALISTIC HIGH-END PROFESSIONAL 3×3 MULTI-FRAME PORTRAIT COLLAGE...", // We don't actually need this object anymore if we use the smart logic below
+};
+
+async function buildImagePrompt() {
+  const category = document.getElementById('img-template').value;
+  const subject = document.getElementById('img-subject').value.trim();
+  const env = document.getElementById('img-env').value.trim();
+  const lighting = document.getElementById('img-lighting').value.trim();
+  const style = document.getElementById('img-style').value.trim();
+
+  let idea = [subject, env, lighting, style].filter(Boolean).join('. ');
+
+  const originalBtnText = document.querySelector('.img-btn').textContent;
+  document.querySelector('.img-btn').textContent = "✨ Generating Prompt...";
+  document.querySelector('.img-btn').disabled = true;
+
+  // Simulate network delay for UI feedback
+  await new Promise(r => setTimeout(r, 600));
+
+  let base = `CREATE AN ULTRA-REALISTIC, HIGH-END PROFESSIONAL PHOTOGRAPH. `;
+  if (idea) base += `MAIN CONCEPT: ${idea.toUpperCase()}. `;
+
+  let modifiers = "";
+  switch (category) {
+      case 'portrait':
+          modifiers = `\nASPECT RATIO: Vertical 4:5.\nSUBJECT & IDENTITY: High-end lifestyle portrait. Natural face shape, distinct authentic features, realistic skin texture with visible pores and slight imperfections. No beautification filter, no plastic skin.\nLIGHTING: Soft diffused natural window light, cinematic rim light, gentle highlights on the cheekbones.\nCAMERA: Shot on 85mm portrait lens, f/1.8 aperture, extremely shallow depth of field, sharp focus strictly on the eyes. Optical bokeh background.\nAESTHETIC: Vogue magazine cover quality, photorealistic, 8k resolution, raw photo format.`;
+          break;
+      case 'beach':
+          modifiers = `\nASPECT RATIO: Horizontal 16:9 or Vertical 4:5.\nENVIRONMENT: Beautiful tropical beach shoreline. Crystal clear shallow water, wet reflecting sand, lush green palm trees in the background, bright blue sky with wispy clouds.\nLIGHTING: Golden hour sunset / soft natural daylight, warm sun-kissed highlights, natural bounce light from the sand.\nCAMERA: Shot on 35mm lens, f/2.8, full-frame sensor, sharp environmental focus.\nAESTHETIC: High-end travel photography, National Geographic style, physically accurate water caustics, ultra-photorealistic.`;
+          break;
+      case 'cinematic':
+          modifiers = `\nASPECT RATIO: Widescreen 2.35:1 or 16:9.\nENVIRONMENT: Dark, moody, atmospheric setting. Subtle fog or mist in the air, deep shadows.\nLIGHTING: Dramatic chiaroscuro lighting, strong backlight, neon or warm practical light sources, cinematic color grading (teal and orange), high contrast.\nCAMERA: Arri Alexa 65, anamorphic lens, beautiful horizontal lens flares, cinematic grain, realistic motion blur.\nAESTHETIC: Hollywood blockbuster still, highly detailed, dramatic tension, photorealistic 8k.`;
+          break;
+      case 'travel':
+          modifiers = `\nASPECT RATIO: 4:5 or 16:9.\nENVIRONMENT: Breathtaking landscape or vibrant urban street. Authentic local atmosphere.\nLIGHTING: Bright, vibrant natural daylight, rich colors, realistic shadows.\nCAMERA: 24mm or 50mm lens, deep depth of field capturing the environment beautifully. \nAESTHETIC: Candid, energetic, documentary travel photography, high dynamic range, sharp details.`;
+          break;
+      case 'night':
+          modifiers = `\nASPECT RATIO: 4:5 or 16:9.\nENVIRONMENT: Nighttime scene, dark surroundings, glowing practical lights, wet streets reflecting neon signs.\nLIGHTING: Low-key lighting, strong colorful accents (emerald green, neon pink, or warm yellow), deep black shadows. \nCAMERA: f/1.2 aperture, high ISO analog film look, beautiful glowing bokeh balls in the background.\nAESTHETIC: Moody night photography, cinematic, slightly grainy film texture, ultra-realistic.`;
+          break;
+      case 'motorcycle':
+          modifiers = `\nASPECT RATIO: 4:5 or 16:9.\nENVIRONMENT: Scenic highway, dramatic sunset, or gritty urban street. \nLIGHTING: Hard directional light, chrome reflections, high contrast.\nCAMERA: Low angle perspective, motion blur on the background if moving, sharp focus on the bike.\nAESTHETIC: Adrenaline lifestyle, commercial automotive photography, ultra-realistic 8k.`;
+          break;
+      case 'collage':
+          modifiers = `\nASPECT RATIO: 2:3 Vertical.\nFORMAT: 3x3 Grid Photo Collage. 9 distinct frames combined into one single image.\nSUBJECT: Consistent identity across all 9 frames but different candid poses in each frame.\nLIGHTING: Beautiful natural outdoor daylight.\nCAMERA: DSLR portrait photography.\nAESTHETIC: Cheerful, lifestyle photoshoot, high-end professional.`;
+          break;
+      default:
+          modifiers = `\nASPECT RATIO: 16:9.\nLIGHTING: Studio-quality balanced lighting.\nCAMERA: DSLR, sharp focus, highly detailed.\nAESTHETIC: Masterpiece, ultra-realistic, 8k resolution.`;
+  }
+
+  const finalPrompt = base + modifiers + `\n\nSTRICT NEGATIVE PROMPT: cartoon, illustration, painting, 3d render, CGI, unrealistic proportions, extra limbs, bad anatomy, distorted faces, plastic skin, oversaturated, watermark, text.`;
+
+  document.getElementById('imgOutputText').textContent = finalPrompt;
+  const ob = document.getElementById('imgOutputBox');
+  ob.classList.add('show');
+  ob.scrollIntoView({behavior:'smooth',block:'nearest'});
+  
+  document.querySelector('.img-btn').textContent = originalBtnText;
+  document.querySelector('.img-btn').disabled = false;
+}
+
+function copyPrompt(textId, btnId) {
+  const text = document.getElementById(textId).textContent;
+  
+  // Use modern clipboard API
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      showCopiedState(btnId);
+    }).catch(err => {
+      // Fallback
+      fallbackCopyTextToClipboard(text, btnId);
+    });
+  } else {
+    // Fallback
+    fallbackCopyTextToClipboard(text, btnId);
+  }
+}
+
+function fallbackCopyTextToClipboard(text, btnId) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  
+  // Avoid scrolling to bottom
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    document.execCommand('copy');
+    showCopiedState(btnId);
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+  document.body.removeChild(textArea);
+}
+
+function showCopiedState(btnId) {
+  const btn = document.getElementById(btnId);
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '✅ Copied to Clipboard!';
+  btn.classList.add('copied');
+  setTimeout(() => { 
+    btn.innerHTML = originalText; 
+    btn.classList.remove('copied'); 
+  }, 2500);
+}
+
+function clearAll() {
+  ['b-persona','b-task','b-audience','b-tone','b-context','b-refs','b-constraints'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('b-format').value = '';
+  document.getElementById('b-lang').value = '';
+  document.getElementById('outputBox').classList.remove('show');
+}
+
+function clearImageAll() {
+  ['img-subject','img-env','img-lighting','img-style'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('img-template').value = 'portrait';
+  document.getElementById('imgOutputBox').classList.remove('show');
+}
+</script>
+</body>
+</html>
+
