@@ -196,41 +196,70 @@ function googleTranslateElementInit() {
 <div class="container">
   <span class="sec-tag" style="background:var(--pink);">🖼️ Image Prompt Generator</span>
   <h2 class="sec-h">Create <span>Ultra-Realistic Images</span></h2>
-  <p class="sec-sub">Type a few words, and our Magic Engine will convert it into a Midjourney/Stable Diffusion ready super-prompt!</p>
+  <p class="sec-sub">Select your options and let our engine build a highly detailed Midjourney/Stable Diffusion prompt.</p>
 
   <div class="builder-card">
-    <div class="field">
-      <label style="color:var(--pink);">🖼️ Template Style</label>
-      <select id="img-template">
-        <option value="portrait">👤 Professional Lifestyle Portrait</option>
-        <option value="beach">🏖️ Tropical Beach Walking Portrait</option>
-        <option value="cinematic">🎬 Cinematic Dark Fashion Portrait</option>
-        <option value="travel">🌊 Travel Portrait (Standing on rocks/sea)</option>
-        <option value="night">🌙 Cinematic Night Portrait (Green Lanterns)</option>
-        <option value="motorcycle">🏍️ Waterfront Motorcycle Portrait</option>
-        <option value="collage">📸 3x3 Multi-Frame Portrait Collage</option>
-      </select>
+    <div class="field-grid">
+      <div class="field">
+        <label style="color:var(--pink);">🖼️ Image Category</label>
+        <select id="img-category" onchange="document.getElementById('img-cat-custom').style.display = this.value === 'custom' ? 'block' : 'none'">
+          <option value="Photo">📷 Professional Photo</option>
+          <option value="Female Portrait">👩 Female Portrait</option>
+          <option value="Male Portrait">👨 Male Portrait</option>
+          <option value="Couple Photo">👫 Couple Photo</option>
+          <option value="Invitation Card">💌 Invitation Card</option>
+          <option value="Poster">🎨 Poster</option>
+          <option value="Social Media Poster">📱 Social Media Poster</option>
+          <option value="custom">✏️ Custom (Type manually)...</option>
+        </select>
+        <input type="text" id="img-cat-custom" placeholder="e.g. 3D Render, Anime, Watercolor..." style="display:none; margin-top:8px;"/>
+      </div>
+      <div class="field">
+        <label style="color:var(--pink);">📐 Aspect Ratio / Size</label>
+        <select id="img-ratio">
+          <option value="4:5 PORTRAIT">📱 4:5 Portrait</option>
+          <option value="1:1 SQUARE">⏹️ 1:1 Square</option>
+          <option value="16:9 LANDSCAPE">🖥️ 16:9 Landscape</option>
+          <option value="9:16 STORY">📱 9:16 Story/Reel</option>
+          <option value="A4 PRINT">📄 A4 Print (Portrait)</option>
+          <option value="A5 PRINT">📄 A5 Print (Portrait)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom: 24px;">
+      <label style="color:var(--pink);">🗣️ Required Text Languages (If any text in image)</label>
+      <div style="display:flex; gap: 15px; margin-top: 5px;">
+        <label style="display:flex; align-items:center; gap:5px; text-transform:none;"><input type="checkbox" id="lang-en" value="English"/> English</label>
+        <label style="display:flex; align-items:center; gap:5px; text-transform:none;"><input type="checkbox" id="lang-si" value="Sinhala"/> Sinhala</label>
+        <label style="display:flex; align-items:center; gap:5px; text-transform:none;"><input type="checkbox" id="lang-ta" value="Tamil"/> Tamil</label>
+      </div>
     </div>
 
     <div class="field">
-      <label style="color:var(--pink);">🧑 Subject / Character <span>(Who is in the photo?)</span></label>
-      <input type="text" id="img-subject" placeholder="e.g. A natural Sri Lankan woman wearing a red dress..."/>
+      <label style="color:var(--pink);">🧑 Subject / Core Concept <span>(Who or what is the main focus?)</span></label>
+      <textarea id="img-subject" placeholder="e.g. A young South Asian woman wearing an elegant traditional saree..."></textarea>
     </div>
 
     <div class="field">
-      <label style="color:var(--pink);">🌍 Environment / Background <span>(Where are they?)</span></label>
-      <input type="text" id="img-env" placeholder="e.g. A busy street in Colombo at night..."/>
+      <label style="color:var(--pink);">🌍 Environment / Background <span>(Where is this happening?)</span></label>
+      <textarea id="img-env" placeholder="e.g. Dark cinematic forest with tall pine trees..."></textarea>
     </div>
 
     <div class="field-grid">
       <div class="field">
-        <label style="color:var(--pink);">💡 Lighting</label>
-        <input type="text" id="img-lighting" placeholder="e.g. Golden hour sunset lighting"/>
+        <label style="color:var(--pink);">💡 Lighting & Colors</label>
+        <textarea id="img-lighting" placeholder="e.g. Golden hour sunset, dark cinematic low-key..."></textarea>
       </div>
       <div class="field">
-        <label style="color:var(--pink);">🎨 Extra Styling (Optional)</label>
-        <input type="text" id="img-style" placeholder="e.g. Fujifilm XT4, vintage film look"/>
+        <label style="color:var(--pink);">📸 Camera & Style Details</label>
+        <textarea id="img-style" placeholder="e.g. 85mm portrait lens, f/1.8, shallow depth of field..."></textarea>
       </div>
+    </div>
+
+    <div class="field">
+      <label style="color:var(--pink);">🎯 Additional Instructions / Context</label>
+      <textarea id="img-context" placeholder="e.g. The expression should be serious, looking sideways. Must look exactly like reference..."></textarea>
     </div>
 
     <button class="gen-btn img-btn" onclick="buildImagePrompt()" style="margin-top:20px;">✨ Generate Ultra-Realistic Prompt</button>
@@ -505,52 +534,63 @@ const imgTemplates = {
 };
 
 async function buildImagePrompt() {
-  const category = document.getElementById('img-template').value;
+  const catDropdown = document.getElementById('img-category').value;
+  const catCustom = document.getElementById('img-cat-custom').value.trim();
+  const category = catDropdown === 'custom' ? (catCustom || 'Custom') : catDropdown;
+  
+  const ratio = document.getElementById('img-ratio').value;
+  
+  let languages = [];
+  if (document.getElementById('lang-en').checked) languages.push('English');
+  if (document.getElementById('lang-si').checked) languages.push('Sinhala');
+  if (document.getElementById('lang-ta').checked) languages.push('Tamil');
+  
   const subject = document.getElementById('img-subject').value.trim();
   const env = document.getElementById('img-env').value.trim();
   const lighting = document.getElementById('img-lighting').value.trim();
   const style = document.getElementById('img-style').value.trim();
-
-  let idea = [subject, env, lighting, style].filter(Boolean).join('. ');
+  const context = document.getElementById('img-context').value.trim();
 
   const originalBtnText = document.querySelector('.img-btn').textContent;
-  document.querySelector('.img-btn').textContent = "✨ Generating Prompt...";
+  document.querySelector('.img-btn').textContent = "✨ Generating Ultra-Prompt...";
   document.querySelector('.img-btn').disabled = true;
 
   // Simulate network delay for UI feedback
   await new Promise(r => setTimeout(r, 600));
 
-  let base = `CREATE AN ULTRA-REALISTIC, HIGH-END PROFESSIONAL PHOTOGRAPH. `;
-  if (idea) base += `MAIN CONCEPT: ${idea.toUpperCase()}. `;
+  let finalPrompt = `CREATE A HIGH-END, ULTRA-REALISTIC PROFESSIONAL ${category.toUpperCase()}. \nREFERENCE IMAGE PRIORITY: EXTREMELY HIGH (If a reference image is provided). Use the reference as the STRICT PRIMARY VISUAL AUTHORITY for the composition.\n\n`;
 
-  let modifiers = "";
-  switch (category) {
-      case 'portrait':
-          modifiers = `\nASPECT RATIO: Vertical 4:5.\nSUBJECT & IDENTITY: High-end lifestyle portrait. Natural face shape, distinct authentic features, realistic skin texture with visible pores and slight imperfections. No beautification filter, no plastic skin.\nLIGHTING: Soft diffused natural window light, cinematic rim light, gentle highlights on the cheekbones.\nCAMERA: Shot on 85mm portrait lens, f/1.8 aperture, extremely shallow depth of field, sharp focus strictly on the eyes. Optical bokeh background.\nAESTHETIC: Vogue magazine cover quality, photorealistic, 8k resolution, raw photo format.`;
-          break;
-      case 'beach':
-          modifiers = `\nASPECT RATIO: Horizontal 16:9 or Vertical 4:5.\nENVIRONMENT: Beautiful tropical beach shoreline. Crystal clear shallow water, wet reflecting sand, lush green palm trees in the background, bright blue sky with wispy clouds.\nLIGHTING: Golden hour sunset / soft natural daylight, warm sun-kissed highlights, natural bounce light from the sand.\nCAMERA: Shot on 35mm lens, f/2.8, full-frame sensor, sharp environmental focus.\nAESTHETIC: High-end travel photography, National Geographic style, physically accurate water caustics, ultra-photorealistic.`;
-          break;
-      case 'cinematic':
-          modifiers = `\nASPECT RATIO: Widescreen 2.35:1 or 16:9.\nENVIRONMENT: Dark, moody, atmospheric setting. Subtle fog or mist in the air, deep shadows.\nLIGHTING: Dramatic chiaroscuro lighting, strong backlight, neon or warm practical light sources, cinematic color grading (teal and orange), high contrast.\nCAMERA: Arri Alexa 65, anamorphic lens, beautiful horizontal lens flares, cinematic grain, realistic motion blur.\nAESTHETIC: Hollywood blockbuster still, highly detailed, dramatic tension, photorealistic 8k.`;
-          break;
-      case 'travel':
-          modifiers = `\nASPECT RATIO: 4:5 or 16:9.\nENVIRONMENT: Breathtaking landscape or vibrant urban street. Authentic local atmosphere.\nLIGHTING: Bright, vibrant natural daylight, rich colors, realistic shadows.\nCAMERA: 24mm or 50mm lens, deep depth of field capturing the environment beautifully. \nAESTHETIC: Candid, energetic, documentary travel photography, high dynamic range, sharp details.`;
-          break;
-      case 'night':
-          modifiers = `\nASPECT RATIO: 4:5 or 16:9.\nENVIRONMENT: Nighttime scene, dark surroundings, glowing practical lights, wet streets reflecting neon signs.\nLIGHTING: Low-key lighting, strong colorful accents (emerald green, neon pink, or warm yellow), deep black shadows. \nCAMERA: f/1.2 aperture, high ISO analog film look, beautiful glowing bokeh balls in the background.\nAESTHETIC: Moody night photography, cinematic, slightly grainy film texture, ultra-realistic.`;
-          break;
-      case 'motorcycle':
-          modifiers = `\nASPECT RATIO: 4:5 or 16:9.\nENVIRONMENT: Scenic highway, dramatic sunset, or gritty urban street. \nLIGHTING: Hard directional light, chrome reflections, high contrast.\nCAMERA: Low angle perspective, motion blur on the background if moving, sharp focus on the bike.\nAESTHETIC: Adrenaline lifestyle, commercial automotive photography, ultra-realistic 8k.`;
-          break;
-      case 'collage':
-          modifiers = `\nASPECT RATIO: 2:3 Vertical.\nFORMAT: 3x3 Grid Photo Collage. 9 distinct frames combined into one single image.\nSUBJECT: Consistent identity across all 9 frames but different candid poses in each frame.\nLIGHTING: Beautiful natural outdoor daylight.\nCAMERA: DSLR portrait photography.\nAESTHETIC: Cheerful, lifestyle photoshoot, high-end professional.`;
-          break;
-      default:
-          modifiers = `\nASPECT RATIO: 16:9.\nLIGHTING: Studio-quality balanced lighting.\nCAMERA: DSLR, sharp focus, highly detailed.\nAESTHETIC: Masterpiece, ultra-realistic, 8k resolution.`;
+  finalPrompt += `ASPECT RATIO: ${ratio}\n\n`;
+
+  if (subject) {
+      finalPrompt += `SUBJECT & IDENTITY:\n${subject}. Preserve exact facial identity if reference is provided. Keep natural facial proportions, face shape, realistic skin texture, and authentic features. Do not beautify or alter the face artificially. Natural realistic appearance, no plastic skin or excessive retouching.\n\n`;
+  } else {
+      finalPrompt += `SUBJECT:\nCreate a highly detailed, natural, and realistic subject appropriate for a ${category}. Keep anatomical proportions accurate.\n\n`;
   }
 
-  const finalPrompt = base + modifiers + `\n\nSTRICT NEGATIVE PROMPT: cartoon, illustration, painting, 3d render, CGI, unrealistic proportions, extra limbs, bad anatomy, distorted faces, plastic skin, oversaturated, watermark, text.`;
+  if (context) {
+      finalPrompt += `POSE, CONTEXT & EXPRESSION:\n${context}. Ensure the pose and facial expression naturally reflect this context. Realistic body language.\n\n`;
+  }
+
+  if (env) {
+      finalPrompt += `BACKGROUND & ENVIRONMENT:\n${env}. Create a highly detailed and cohesive environment. Natural integration of the subject within the background.\n\n`;
+  }
+
+  if (lighting) {
+      finalPrompt += `LIGHTING & COLOUR PALETTE:\n${lighting}. Use high-end professional lighting techniques (e.g. cinematic, diffused, rim light) suitable for the scene. Realistic shadows and skin/material highlights.\n\n`;
+  }
+
+  if (style) {
+      finalPrompt += `CAMERA & STYLING:\n${style}. Professional DSLR/mirrorless photography aesthetics. Natural optical background blur, realistic lens compression, professional focal length.\n\n`;
+  }
+
+  if (languages.length > 0) {
+      finalPrompt += `TEXT & TYPOGRAPHY:\nIf text is required in the image, ensure it is accurately represented in the following languages: ${languages.join(', ')}. Keep typography clean, legible, and aesthetically integrated into the design.\n\n`;
+  }
+
+  finalPrompt += `IMAGE QUALITY & PHOTOREALISM:\nUltra-realistic professional photography, 8k resolution, raw photo quality, extremely detailed. Natural skin pores, fine hair strands, realistic fabric/material physics. Authentic lighting falloff and cinematic color grading. Must look exactly like a real captured photograph, NOT AI-generated.\n\n`;
+
+  finalPrompt += `STRICT NEGATIVE PROMPT:\ncartoon, illustration, painting, 3d render, CGI, unrealistic proportions, extra limbs, bad anatomy, distorted faces, plastic skin, oversaturated, artificial beauty filter, deformed hands, extra fingers, missing fingers, fake lighting, blurry face, low resolution, noise, watermark, ugly, disproportionate.`;
 
   document.getElementById('imgOutputText').textContent = finalPrompt;
   const ob = document.getElementById('imgOutputBox');
@@ -564,16 +604,13 @@ async function buildImagePrompt() {
 function copyPrompt(textId, btnId) {
   const text = document.getElementById(textId).textContent;
   
-  // Use modern clipboard API
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(() => {
       showCopiedState(btnId);
     }).catch(err => {
-      // Fallback
       fallbackCopyTextToClipboard(text, btnId);
     });
   } else {
-    // Fallback
     fallbackCopyTextToClipboard(text, btnId);
   }
 }
@@ -581,12 +618,9 @@ function copyPrompt(textId, btnId) {
 function fallbackCopyTextToClipboard(text, btnId) {
   var textArea = document.createElement("textarea");
   textArea.value = text;
-  
-  // Avoid scrolling to bottom
   textArea.style.top = "0";
   textArea.style.left = "0";
   textArea.style.position = "fixed";
-
   document.body.appendChild(textArea);
   textArea.focus();
   textArea.select();
@@ -621,10 +655,15 @@ function clearAll() {
 }
 
 function clearImageAll() {
-  ['img-subject','img-env','img-lighting','img-style'].forEach(id => {
+  ['img-subject','img-env','img-lighting','img-style', 'img-context', 'img-cat-custom'].forEach(id => {
     document.getElementById(id).value = '';
   });
-  document.getElementById('img-template').value = 'portrait';
+  document.getElementById('img-category').value = 'Photo';
+  document.getElementById('img-cat-custom').style.display = 'none';
+  document.getElementById('img-ratio').value = '4:5 PORTRAIT';
+  document.getElementById('lang-en').checked = false;
+  document.getElementById('lang-si').checked = false;
+  document.getElementById('lang-ta').checked = false;
   document.getElementById('imgOutputBox').classList.remove('show');
 }
 </script>
