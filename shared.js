@@ -168,20 +168,10 @@ window.addEventListener('DOMContentLoaded', () => {
   initTheme();
   setupScrollAnim();
   setupFilter();
-  addBMCWidget();
+  
+  // Set current year
+  const year = new Date().getFullYear();
+  document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = year;
+  });
 });
-
-function addBMCWidget() {
-  const script = document.createElement('script');
-  script.setAttribute('data-name', 'BMC-Widget');
-  script.setAttribute('data-cfasync', 'false');
-  script.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
-  script.setAttribute('data-id', 'lakshanvidanapathirana');
-  script.setAttribute('data-description', 'Support me on Buy me a coffee!');
-  script.setAttribute('data-message', 'If you find this AI guide useful, you can buy me a coffee! ☕');
-  script.setAttribute('data-color', '#FFDD00');
-  script.setAttribute('data-position', 'Right');
-  script.setAttribute('data-x_margin', '18');
-  script.setAttribute('data-y_margin', '18');
-  document.body.appendChild(script);
-}
