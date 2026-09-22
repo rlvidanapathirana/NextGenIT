@@ -413,7 +413,19 @@ function buildPrompt() {
   if (audience) parts.push('\nTarget Audience: ' + audience);
   if (tone) parts.push('\nTone of Voice: ' + tone);
   if (ctx) parts.push('\nContext: ' + ctx);
-  if (refs) parts.push('\nRefasync function buildMagicPrompt() {
+  if (refs) parts.push('\nReference / Style guide: ' + refs);
+  if (fmt) parts.push('\n' + fmt);
+  if (constraints) parts.push('\nAdditional requirements: ' + constraints);
+  if (lang) parts.push('\n' + lang);
+
+  const prompt = parts.join(' ');
+  document.getElementById('outputText').textContent = prompt;
+  const ob = document.getElementById('outputBox');
+  ob.classList.add('show');
+  ob.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+async function buildMagicPrompt() {
   const persona = document.getElementById('b-persona').value.trim();
   const task = document.getElementById('b-task').value.trim();
   const audience = document.getElementById('b-audience').value.trim();
